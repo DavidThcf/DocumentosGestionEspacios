@@ -1,12 +1,12 @@
-id_evento;fecha_evento;fecha_solicitud;nombre;objetivo;riesgos;acciones
-1;2018-06-26;2018-05-03 11:04:13.808-05;Ingenierrring;Ingenierrring;Ninguno;Ingenierrring
-2;2018-05-03;2018-05-03 12:01:24.779-05;prueba;prueba;Ninguno;prueba
-3;2018-05-29;2018-05-04 10:00:56.992-05;Convenio UNAN;Practica de TICS;Ninguno;Exposicion
-4;2018-05-31;2018-05-08 11:58:49.017-05;Reunion de Especialistas;Verificar los conocimientos con respecto a las te;Ninguno;Presentacion de Diapositivas
-5;2018-06-01;2018-05-09 09:37:45.911-05;Capacitación Vendedores;Capacitar Vendedores;Ninguno;Conferencia
-6;2018-05-31;2018-05-04 10:15:24.589-05;Proteccion Medio Ambiente;Tecnologiasas  protección ambiente;Ninguno;Proyeccion
-7;2018-06-02;2018-05-09 09:40:51.575-05;Congreso de Auditores;Explicacion de las normas Icontec;Ninguno;Proyeccion
-8;2018-05-08;2018-05-08 14:24:45.342-05;Congreso IEEE;Motivacion al uso de las tecnica IEE;Ninguno;Proyeccion
-9;2018-05-09;2018-05-09 09:43:10.973-05;Congreso de veduria y corrupcion;Detectar modos de corrupcion;Danio de las intalaciones por fuego;Conferencia
-10;2018-05-31;2018-05-10 11:23:35.385-05;Capacitacion de normas Retie;Prevencion de accidentes en electricidad;Ninguno;Conferencia
-11;2018-05-31;2018-05-10 11:42:47.452-05;Cocurso de LOL;LLevar a cabo la competencia lol;Ninguno;Comnpetencia
+id_evento;fecha_evento;fecha_solicitud;nombre;objetivo;riesgos;acciones;observacion
+1;26/06/2018;2018-05-03 11:04:13.808-05;Ingenierrring;Ingenierrring;Ninguno;Ingenierrring;
+2;03/05/2018;2018-05-03 12:01:24.779-05;prueba;prueba;Ninguno;prueba;
+3;29/05/2018;2018-05-04 10:00:56.992-05;Convenio UNAN;Practica de TICS;Ninguno;Exposicion;
+4;31/05/2018;2018-05-08 11:58:49.017-05;Reunion de Especialistas;Verificar los conocimientos con respecto a las te;Ninguno;Presentacion de Diapositivas;
+5;01/06/2018;2018-05-09 09:37:45.911-05;Capacitación Vendedores;Capacitar Vendedores;Ninguno;Conferencia;
+6;31/05/2018;2018-05-04 10:15:24.589-05;Proteccion Medio Ambiente;Tecnologiasas  protección ambiente;Ninguno;Proyeccion;
+7;02/06/2018;2018-05-09 09:40:51.575-05;Congreso de Auditores;Explicacion de las normas Icontec;Ninguno;Proyeccion;
+8;08/05/2018;2018-05-08 14:24:45.342-05;Congreso IEEE;Motivacion al uso de las tecnica IEE;Ninguno;Proyeccion;
+9;09/05/2018;2018-05-09 09:43:10.973-05;Congreso de veduria y corrupcion;Detectar modos de corrupcion;Danio de las intalaciones por fuego;Conferencia;El Horario no se encuentra disponible
+10;31/05/2018;2018-05-10 11:23:35.385-05;Capacitacion de normas Retie;Prevencion de accidentes en electricidad;Ninguno;Conferencia;El Horario no se encuentra disponible
+11;31/05/2018;2018-05-10 11:42:47.452-05;Cocurso de LOL;LLevar a cabo la competencia lol;Ninguno;Comnpetencia;

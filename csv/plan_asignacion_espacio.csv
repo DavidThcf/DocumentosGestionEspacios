@@ -1,62 +1,62 @@
-id_asign_espacio_fisico;id_espacio_fisico;id_horario_espacio;id_solicitante;cedula_responsable;nombre_responsable;cargo_responsable;oficina_responsable;celular_responsable;id_evento;observacion;id_solicitud
-1;25;2;1;1088967689;Sergio Hernando Castillo Galvis ;Director Aula Informatica;Aula de Informatica;3104583622;1;;2
-2;25;1;2;1088967452;Juliana Patricia Castañeda Villamizar;Decano;Decanatura;3104589632;7;;1
-3;25;2;2;1088967452;Juliana Patricia Castañeda Villamizar;Decano;Decanatura;3104589632;7;;1
-4;25;3;2;1088967452;Juliana Patricia Castañeda Villamizar;Decano;Decanatura;3104589632;7;;1
-5;25;4;2;1088967452;Juliana Patricia Castañeda Villamizar;Decano;Decanatura;3104589632;7;;1
-6;25;6;4;1088967689;Sergio Hernando Castillo Galvis ;Director Aula Informatica;Aula de Informatica;3104583622;1;;2
-7;25;8;4;1088967689;Sergio Hernando Castillo Galvis ;Director Aula Informatica;Aula de Informatica;3104583622;1;;2
-8;25;10;4;1088967689;Sergio Hernando Castillo Galvis ;Director Aula Informatica;Aula de Informatica;3104583622;1;;2
-9;25;31;5;1088967926;Fernando Eliecer Cruz Gallo ;Director;sistemas;3104577612;2;El Horario no se encuentra disponible;3
-10;25;27;5;1088967926;Fernando Eliecer Cruz Gallo ;Director;sistemas;3104577612;2;El Horario no se encuentra disponible;3
-11;25;1;6;1088968163;Siboney Daza Guerrero ;Directo Centro Informatica;Centro de Informatica;3104571602;3;;4
-12;25;3;6;1088968163;Siboney Daza Guerrero ;Directo Centro Informatica;Centro de Informatica;3104571602;3;;4
-13;25;4;6;1088968163;Siboney Daza Guerrero ;Directo Centro Informatica;Centro de Informatica;3104571602;3;;4
-14;25;23;7;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;2;;5
-15;25;6;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;11;;5
-16;25;6;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;10;;5
-17;25;6;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;6;;5
-18;25;6;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;4;;5
-19;25;4;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;11;;5
-20;25;4;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;10;;5
-21;25;4;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;6;;5
-22;25;4;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;4;;5
-23;25;11;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;11;;5
-24;25;11;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;10;;5
-25;25;11;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;6;;5
-26;25;11;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;4;;5
-27;25;12;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;11;;5
-28;25;12;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;10;;5
-29;25;12;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;6;;5
-30;25;12;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;4;;5
-31;25;13;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;11;;5
-32;25;13;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;10;;5
-33;25;13;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;6;;5
-34;25;13;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;4;;5
-35;25;14;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;11;;5
-36;25;14;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;10;;5
-37;25;14;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;6;;5
-38;25;14;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;4;;5
-39;25;7;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;11;;6
-40;25;7;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;10;;6
-41;25;7;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;6;;6
-42;25;7;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;4;;6
-43;25;8;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;11;;6
-44;25;8;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;10;;6
-45;25;8;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;6;;6
-46;25;8;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;4;;6
-47;25;9;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;11;;6
-48;25;9;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;10;;6
-49;25;9;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;6;;6
-50;25;9;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;4;;6
-51;25;4;10;1088968874;Alejandro Moros Pinzon ;Jefe de Oficina;Artes;3104553572;1;El Horario asignado Correctamente;7
-52;25;5;10;1088969348;Edwin Jhovanny Cardona Escobar;Decano;Derecho;3104541552;11;Los nombres no pueden ser 1;9
-53;25;5;10;1088969348;Edwin Jhovanny Cardona Escobar;Decano;Derecho;3104541552;10;Los nombres no pueden ser 1;9
-54;25;5;10;1088969348;Edwin Jhovanny Cardona Escobar;Decano;Derecho;3104541552;6;Los nombres no pueden ser 1;9
-55;25;5;10;1088969348;Edwin Jhovanny Cardona Escobar;Decano;Derecho;3104541552;4;Los nombres no pueden ser 1;9
-56;25;2;11;1088969348;Edwin Jhovanny Cardona Escobar;Decano;Derecho;3104541552;3;Los nombres no pueden ser 1;9
-57;25;7;11;1088969111;Monica Liliana Muñoz Mejia;Jefe de Oficina;Artes;3104547562;1;Nombres Incorrectos;8
-58;25;1;11;1088969111;Monica Liliana Muñoz Mejia;Jefe de Oficina;Artes;3104547562;1;Nombres Incorrectos;8
-59;25;3;11;1088969111;Monica Liliana Muñoz Mejia;Jefe de Oficina;Artes;3104547562;1;Nombres Incorrectos;8
-60;25;9;11;1088969111;Monica Liliana Muñoz Mejia;Jefe de Oficina;Artes;3104547562;1;Nombres Incorrectos;8
-61;25;5;11;1088969111;Monica Liliana Muñoz Mejia;Jefe de Oficina;Artes;3104547562;1;Nombres Incorrectos;8
+id_asign_espacio_fisico;id_espacio_fisico;id_horario_espacio;id_solicitante;cedula_responsable;nombre_responsable;cargo_responsable;oficina_responsable;celular_responsable;id_evento
+1;25;2;1;1088967689;Sergio Hernando Castillo Galvis ;Director Aula Informatica;Aula de Informatica;3104583622;1
+2;25;1;2;1088967452;Juliana Patricia Castañeda Villamizar;Decano;Decanatura;3104589632;7
+3;25;2;2;1088967452;Juliana Patricia Castañeda Villamizar;Decano;Decanatura;3104589632;7
+4;25;3;2;1088967452;Juliana Patricia Castañeda Villamizar;Decano;Decanatura;3104589632;7
+5;25;4;2;1088967452;Juliana Patricia Castañeda Villamizar;Decano;Decanatura;3104589632;7
+6;25;6;4;1088967689;Sergio Hernando Castillo Galvis ;Director Aula Informatica;Aula de Informatica;3104583622;1
+7;25;8;4;1088967689;Sergio Hernando Castillo Galvis ;Director Aula Informatica;Aula de Informatica;3104583622;1
+8;25;10;4;1088967689;Sergio Hernando Castillo Galvis ;Director Aula Informatica;Aula de Informatica;3104583622;1
+9;25;31;5;1088967926;Fernando Eliecer Cruz Gallo ;Director;sistemas;3104577612;2
+10;25;27;5;1088967926;Fernando Eliecer Cruz Gallo ;Director;sistemas;3104577612;2
+11;25;1;6;1088968163;Siboney Daza Guerrero ;Directo Centro Informatica;Centro de Informatica;3104571602;3
+12;25;3;6;1088968163;Siboney Daza Guerrero ;Directo Centro Informatica;Centro de Informatica;3104571602;3
+13;25;4;6;1088968163;Siboney Daza Guerrero ;Directo Centro Informatica;Centro de Informatica;3104571602;3
+14;25;23;7;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;2
+15;25;6;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;11
+16;25;6;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;10
+17;25;6;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;6
+18;25;6;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;4
+19;25;4;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;11
+20;25;4;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;10
+21;25;4;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;6
+22;25;4;8;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;4
+23;25;11;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;11
+24;25;11;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;10
+25;25;11;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;6
+26;25;11;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;4
+27;25;12;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;11
+28;25;12;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;10
+29;25;12;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;6
+30;25;12;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;4
+31;25;13;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;11
+32;25;13;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;10
+33;25;13;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;6
+34;25;13;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;4
+35;25;14;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;11
+36;25;14;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;10
+37;25;14;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;6
+38;25;14;9;1088968400;Aidee Esmir Duarte Villamil ;Director;Veterinaria;3104565592;4
+39;25;7;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;11
+40;25;7;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;10
+41;25;7;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;6
+42;25;7;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;4
+43;25;8;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;11
+44;25;8;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;10
+45;25;8;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;6
+46;25;8;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;4
+47;25;9;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;11
+48;25;9;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;10
+49;25;9;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;6
+50;25;9;10;1088968637;Fernando Monsalve Garcia ;Decano;Ingenieria;3104559582;4
+51;25;4;10;1088968874;Alejandro Moros Pinzon ;Jefe de Oficina;Artes;3104553572;1
+52;25;5;10;1088969348;Edwin Jhovanny Cardona Escobar;Decano;Derecho;3104541552;11
+53;25;5;10;1088969348;Edwin Jhovanny Cardona Escobar;Decano;Derecho;3104541552;10
+54;25;5;10;1088969348;Edwin Jhovanny Cardona Escobar;Decano;Derecho;3104541552;6
+55;25;5;10;1088969348;Edwin Jhovanny Cardona Escobar;Decano;Derecho;3104541552;4
+56;25;2;11;1088969348;Edwin Jhovanny Cardona Escobar;Decano;Derecho;3104541552;3
+57;25;7;11;1088969111;Monica Liliana Muñoz Mejia;Jefe de Oficina;Artes;3104547562;1
+58;25;1;11;1088969111;Monica Liliana Muñoz Mejia;Jefe de Oficina;Artes;3104547562;1
+59;25;3;11;1088969111;Monica Liliana Muñoz Mejia;Jefe de Oficina;Artes;3104547562;1
+60;25;9;11;1088969111;Monica Liliana Muñoz Mejia;Jefe de Oficina;Artes;3104547562;1
+61;25;5;11;1088969111;Monica Liliana Muñoz Mejia;Jefe de Oficina;Artes;3104547562;1
