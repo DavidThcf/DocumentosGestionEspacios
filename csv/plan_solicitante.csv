@@ -1,4 +1,4 @@
-id_solicitante;cedula;nombre_solicitante;ocupacion_solicitante;celular_solicitante
+id_solicitante;cedula;nombre;ocupacion;celular
 1;1085369225;Astrid Carolina Correa Beltran;Estudiante;3126485963
 2;1085369548;Lucas Molina;Musico;3126486029
 3;1085369871;Maura Castanieda;Estudiante;3126486095

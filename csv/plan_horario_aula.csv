@@ -1,4 +1,5 @@
-id_horario;hora
+id_horario_aula;hora
+1;7 - 8
 2;8 - 9
 3;9 - 10
 4;10 - 11
@@ -13,4 +14,3 @@ id_horario;hora
 13;7 - 8
 14;8 - 9
 15;9 - 10
-1;7 - 8
