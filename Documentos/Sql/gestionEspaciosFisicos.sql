@@ -400,10 +400,10 @@ CREATE TABLE planeacion.plan_solicitud
   estado character(1) DEFAULT 'N'::bpchar, --  ESTADO EN EL QUE SE ENCUENTRA LA SOLICITUD
   CONSTRAINT pk_plan_solicitud PRIMARY KEY (id_solicitud), -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_solicitud
   CONSTRAINT fk_plan_solicitud_id_evento FOREIGN KEY (id_evento) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_solicitud  Y planeacion.plan_evento
-      REFERENCES general.gener_espacio_fisico (id_espacio_fisico) MATCH SIMPLE
+      REFERENCES planeacion.plan_evento (id_evento) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT fk_plan_solicitud_id_espacio_fisico FOREIGN KEY (id_espacio_fisico) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_solicitud  Y general.gener_espacio_fisico
-      REFERENCES planeacion.plan_evento (id_evento) MATCH SIMPLE
+      REFERENCES general.gener_espacio_fisico (id_espacio_fisico) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT chk_plan_solicitud_estado CHECK (estado = 'N'::bpchar OR estado = 'A'::bpchar OR estado = 'R'::bpchar)
 )
@@ -470,15 +470,11 @@ CREATE TABLE planeacion.plan_asignacion_espacio
   celular_responsable character varying(100), -- CELULAR  DEL RESPONSABLE
   id_evento integer NOT NULL, -- IDENTIFICADOR QUE REPRESENTA EL EVENTO AL CUAL SE ASIGNA EL ESPACIO
   observacion character varying(100), -- OBSERVACION DE LA ASIGNACION
-  id_dia integer, -- DIA DE LA ASIGNACION
   id_solicitud integer NOT NULL, -- IDENTIFICADOR DE LA SOLICITUD
   CONSTRAINT pk_plan_asignacion_espacio PRIMARY KEY (id_asign_espacio_fisico), -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_asignacion_espacio
   CONSTRAINT fk_plan_asignacion_espacio_id_espacio_fisico FOREIGN KEY (id_espacio_fisico) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio  Y general.gener_espacio_fisico
       REFERENCES general.gener_espacio_fisico (id_espacio_fisico) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fk_plan_asignacion_espacio_id_dia FOREIGN KEY (id_dia) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio  Y planeacion.plan_dia
-      REFERENCES planeacion.plan_dia (id_dia) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION, 
   CONSTRAINT fk_plan_asignacion_espacio_id_horario_espacio FOREIGN KEY (id_horario_espacio) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio  Y planeacion.plan_horario_espacio
       REFERENCES planeacion.plan_horario_espacio (id_horario_espacio) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -508,12 +504,9 @@ COMMENT ON COLUMN planeacion.plan_asignacion_espacio.oficina_responsable IS 'OFI
 COMMENT ON COLUMN planeacion.plan_asignacion_espacio.celular_responsable IS 'CELULAR  DEL RESPONSABLE';
 COMMENT ON COLUMN planeacion.plan_asignacion_espacio.id_evento IS 'IDENTIFICADOR QUE REPRESENTA EL EVENTO AL CUAL SE ASIGNA EL ESPACIO';
 COMMENT ON COLUMN planeacion.plan_asignacion_espacio.observacion IS 'OBSERVACION DE LA SOLICITUD';
-COMMENT ON COLUMN planeacion.plan_asignacion_espacio.id_dia IS 'DIA DE LA ASIGNACION';
 COMMENT ON COLUMN planeacion.plan_asignacion_espacio.id_solicitud IS 'IDENTIFICADOR DE LA SOLICITUD';
 COMMENT ON CONSTRAINT pk_plan_asignacion_espacio ON planeacion.plan_asignacion_espacio IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_asignacion_espacio';
 COMMENT ON CONSTRAINT fk_plan_asignacion_espacio_id_espacio_fisico ON planeacion.plan_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio Y general.espacio_fisico';
-COMMENT ON CONSTRAINT fk_plan_asignacion_espacio_id_dia ON planeacion.plan_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio Y planeacion.plan_dia';
 COMMENT ON CONSTRAINT fk_plan_asignacion_espacio_id_horario_espacio ON planeacion.plan_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio Y planeacion.plan_horario_espacio';
-COMMENT ON CONSTRAINT fk_plan_asignacion_espacio_id_solicitante ON planeacion.plan_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio Y planeacion.plan_solicitante';
 COMMENT ON CONSTRAINT fk_plan_asignacion_espacio_id_solicitante ON planeacion.plan_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio Y planeacion.plan_solicitante';
 COMMENT ON CONSTRAINT fk_plan_asignacion_espacio_id_evento ON planeacion.plan_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio Y planeacion.plan_evento';

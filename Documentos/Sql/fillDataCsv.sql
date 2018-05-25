@@ -8,8 +8,6 @@ truncate general.gener_area_construida cascade;
 COPY general.gener_area_construida FROM 'D:\datacsv\gener_area_construida.csv' DELIMITER ';'; --CSV HEADER;
 select setval('general.gener_area_construida_id_area_construida_seq', (select max(id_area_construida) from general.gener_area_construida));
 
---COPY general.gener_tipo_espacio  TO 'D:\datacsv\gener_tipo_espacio.csv' DELIMITER ';'; --CSV HEADER;
---COPY general.gener_espacio_fisico  TO 'D:\datacsv\gener_espacio_fisico.csv' DELIMITER ';'; --CSV HEADER;
 truncate general.gener_espacio_fisico cascade;
 COPY general.gener_espacio_fisico FROM 'D:\datacsv\gener_espacio_fisico.csv' DELIMITER ';'; --CSV HEADER;
 select setval('general.gener_espacio_fisico_id_espacio_fisico_seq', (select max(id_espacio_fisico) from general.gener_espacio_fisico));
@@ -32,26 +30,26 @@ select setval('planeacion.plan_horario_aula_id_horario_aula_seq', (select max(id
 
 truncate planeacion.plan_asignacion_aula cascade;
 COPY planeacion.plan_asignacion_aula  FROM 'D:\datacsv\plan_asignacion_aula.csv' DELIMITER ';'; --CSV HEADER;
-select setval('planeacion.plan_asignacion_aula_id_asign_aula_seq', (select max(id_asign_aula) from planeacion.plan_asignacion_aula  ));
+select setval('planeacion.plan_asignacion_aula_id_asign_aula_seq', (select max(id_asign_aula) from planeacion.plan_asignacion_aula ));
 
---create table prueba as (select * from general.gener_atributos_espacio_fisico); 
---COPY prueba FROM 'D:\datacsv\gener_espacio_fisico.csv' DELIMITER ';' CSV HEADER;
+truncate planeacion.plan_solicitante cascade;
+COPY planeacion.plan_solicitante  FROM 'D:\datacsv\plan_solicitante.csv' DELIMITER ';' CSV HEADER;
+select setval('planeacion.plan_solicitante_id_solicitante_seq', (select max(id_solicitante) from planeacion.plan_solicitante));
 
---COPY (select t2.id_espacio_fisico, t1.id_area_construida,t1.id_unidad,t1.id_tipo_espacio,t1.area,t1.capacidad,t1.piso,t1.estado  from prueba as t1 join general.gener_espacio_fisico as t2 on t1.nombre = t2.nombre) TO 'D:\datacsv\gener_atributos_espacio_fisico.csv' DELIMITER ';' --CSV HEADER; 
+truncate planeacion.plan_evento cascade;
+COPY planeacion.plan_evento  FROM 'D:\datacsv\plan_evento.csv' DELIMITER ';' CSV HEADER;
+select setval('planeacion.plan_evento_id_evento_seq', (select max(id_evento) from planeacion.plan_evento));
 
-	
 
-/*
+truncate planeacion.plan_solicitud cascade;
+COPY planeacion.plan_solicitud  FROM 'D:\datacsv\plan_solicitud.csv' DELIMITER ';' CSV HEADER;
+select setval('planeacion.plan_solicitud_id_solicitud_seq', (select max(id_solicitud) from planeacion.plan_solicitud));
+
 truncate planeacion.plan_horario_espacio cascade;
 COPY planeacion.plan_horario_espacio  FROM 'D:\datacsv\plan_horario_espacio.csv' DELIMITER ';' CSV HEADER;
-truncate planeacion.plan_asignacion_aula cascade;
-COPY planeacion.plan_asignacion_aula  FROM 'D:\datacsv\plan_asignacion_aula.csv' DELIMITER ';' CSV HEADER;
-truncate planeacion.plan_asignacion_espacio cascade;
-COPY planeacion.plan_asignacion_espacio  FROM 'D:\datacsv\plan_asignacion_espacio.csv' DELIMITER ';' CSV HEADER;*/
-/*COPY planeacion.plan_asignacion_espacio TO 'D:\datacsv\plan_asignacion_espacio.csv' DELIMITER ';' CSV HEADER;*/
+select setval('planeacion.plan_horario_espacio_id_horario_espacio_seq', (select max(id_horario_espacio) from planeacion.plan_horario_espacio));
 
-/*
---create table prueba as (select * from general.gener_atributos_espacio_fisico); 
---COPY prueba FROM 'D:\datacsv\gener_espacio_fisico.csv' DELIMITER ';' CSV HEADER;
-*/
+truncate planeacion.plan_asignacion_espacio cascade;
+COPY planeacion.plan_asignacion_espacio  FROM 'D:\datacsv\plan_asignacion_espacio.csv' DELIMITER ';' CSV HEADER;
+select setval('planeacion.plan_asignacion_espacio_id_asign_espacio_fisico_seq', (select max(id_asign_espacio_fisico) from planeacion.plan_asignacion_espacio));
 
