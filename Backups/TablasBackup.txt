@@ -1,0 +1,19 @@
+C:
+cd C:\Program Files (x86)\pgAdmin 4\v2\runtime
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\gener_sede.backup" --table "general.gener_sede" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\gener_area_construida.backup" --table "general.gener_area_construida" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\gener_tipo_espacios.backup" --table "general.gener_tipo_espacio" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\gener_espacio_fisico.backup" --table "general.gener_espacio_fisico" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\gener_atributos_espacio_fisico.backup" --table "general.gener_atributos_espacio_fisico" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\gener_atributos.backup" --table "general.gener_atributos" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\gener_unidad_atributos.backup" --table "general.gener_unidad_atributos" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\plan_dia.backup" --table "planeacion.plan_dia" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\plan_horario_aula.backup" --table "planeacion.plan_horario_aula" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\plan_solicitante.backup" --table "planeacion.plan_solicitante" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\plan_evento.backup" --table "planeacion.plan_evento" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\plan_asignacion_aula.backup" --table "planeacion.plan_asignacion_aula" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\plan_solicitud.backup" --table "planeacion.plan_solicitud" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\plan_horario_espacio.backup" --table "planeacion.plan_horario_espacio" "udenarSubir"
+pg_dump.exe --host localhost --port 5433 --username "postgres" --no-password  --format custom --verbose --file "D:\datacsv\Backups\plan_asignacion_espacio.backup" --table "planeacion.plan_asignacion_espacio" "udenarSubir"
+
+PAUSE
