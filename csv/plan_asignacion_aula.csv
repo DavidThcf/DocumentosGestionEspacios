@@ -1,4 +1,4 @@
-id_asign_aula;id_espacio_fisico;id_dia;id_horario_aula;semestre;año;facultad;color;programa;materia;profesor
+id_asign_aula;id_atributos_espacio_fisico;id_dia;id_horario_aula;semestre;año;facultad;color;programa;materia;profesor
 1;5;1;2;A;2018;Facultad de ciencias pecuarias;#00ff00;Ingeniería pecuaria;Introduccion;marcelo
 2;5;1;1;A;2018;Facultad de ciencias pecuarias;#00ff00;Ingeniería pecuaria;Introduccion;marcelo
 3;5;1;3;A;2018;Facultad de Ingenieria;#ff6600;Ingeniería de Sistemas;Calculo II;Hernan Escobar

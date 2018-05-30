@@ -1,4 +1,4 @@
-id_asign_espacio_fisico;id_espacio_fisico;id_horario_espacio;id_solicitante;cedula_responsable;nombre_responsable;cargo_responsable;oficina_responsable;celular_responsable;id_evento
+id_asign_espacio_fisico;id_atributos_espacio_fisico;id_horario_espacio;id_solicitante;cedula_responsable;nombre_responsable;cargo_responsable;oficina_responsable;celular_responsable;id_evento
 1;25;2;1;1088967689;Sergio Hernando Castillo Galvis ;Director Aula Informatica;Aula de Informatica;3104583622;1
 2;25;1;2;1088967452;Juliana Patricia Castañeda Villamizar;Decano;Decanatura;3104589632;7
 3;25;2;2;1088967452;Juliana Patricia Castañeda Villamizar;Decano;Decanatura;3104589632;7
