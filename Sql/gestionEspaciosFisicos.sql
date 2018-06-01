@@ -4,9 +4,11 @@ DROP TABLE IF EXISTS  general.gener_sede CASCADE;
 CREATE TABLE general.gener_sede
 (
   id_sede serial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA SEDE EN LA BASE DE DATOS
-  nombre character varying(50), -- NOMBRE DE LA SEDE
-  cod_localizacion character varying(20), -- CODIGO DE LA CIUDAD DONDE SE ENCUENTRA LA SEDE
-  CONSTRAINT pk_gener_sede PRIMARY KEY (id_sede)  -- LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA general.gener_sede
+  nombre character varying(50) NOT NULL, -- NOMBRE DE LA SEDE
+  cod_localizacion character varying(20) NOT NULL, -- CODIGO DE LA CIUDAD DONDE SE ENCUENTRA LA SEDE
+  estado character(1) DEFAULT 'A'::bpchar, NOT NULL -- ESTADO EN EL QUE SE ENCUENTRA LA SEDE A-CTIVO O I-NACTIVO
+  CONSTRAINT pk_gener_sede PRIMARY KEY (id_sede),  -- LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA general.gener_sede
+  CONSTRAINT chk_gener_sede_estado CHECK (estado = 'A'::bpchar OR estado = 'I'::bpchar)
 )
 WITH (
   OIDS=FALSE
@@ -18,6 +20,7 @@ COMMENT ON TABLE general.gener_sede
 COMMENT ON COLUMN general.gener_sede.id_sede IS 'IDENTIFICADOR UNICO DE LA SEDE EN LA BASE DE DATOS';
 COMMENT ON COLUMN general.gener_sede.nombre IS 'NOMBRE DE LA SEDE';
 COMMENT ON COLUMN general.gener_sede.cod_localizacion IS 'CODIGO DE LA CIUDAD EN LA CUAL SE ENCUENTRA LA SEDE';
+COMMENT ON COLUMN general.gener_sede.estado IS 'ESTADO EN EL QUE SE ENCUENTRA LA SEDE A-CTIVO O I-NACTIVO';
 COMMENT ON CONSTRAINT pk_gener_sede ON general.gener_sede IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA general.gener_sede ';
 
 
