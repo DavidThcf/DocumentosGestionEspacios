@@ -6,7 +6,7 @@ CREATE TABLE general.gener_sede
   id_sede serial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA SEDE EN LA BASE DE DATOS
   nombre character varying(50) NOT NULL, -- NOMBRE DE LA SEDE
   cod_localizacion character varying(20) NOT NULL, -- CODIGO DE LA CIUDAD DONDE SE ENCUENTRA LA SEDE
-  estado character(1) DEFAULT 'A'::bpchar, NOT NULL -- ESTADO EN EL QUE SE ENCUENTRA LA SEDE A-CTIVO O I-NACTIVO
+  estado character(1) DEFAULT 'A'::bpchar NOT NULL,  -- ESTADO EN EL QUE SE ENCUENTRA LA SEDE A-CTIVO O I-NACTIVO
   CONSTRAINT pk_gener_sede PRIMARY KEY (id_sede),  -- LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA general.gener_sede
   CONSTRAINT chk_gener_sede_estado CHECK (estado = 'A'::bpchar OR estado = 'I'::bpchar)
 )
@@ -30,13 +30,13 @@ DROP TABLE IF EXISTS  general.gener_area_construida CASCADE;
 CREATE TABLE general.gener_area_construida
 (
   id_area_construida serial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA AREA CONTRUIDA EN LA BASE DE DATOS
-  nombre character varying(50), -- NOMBRE DEL ESPACIO FISICO
-  id_sede integer, -- IDENTIFICADOR DE LA SEDE EN LA CUAL SE ENCUETRA EL AREA CONSTRUIDA
-  num_pisos integer, -- NUMERO DE PISOS DEL AREA CONSTRUIDA
-  mts2 numeric(9,3),  -- AREA TOTAL EN METROS CUADRADOS 
-  mts2_acad numeric(9,3), -- AREA EN METROS CUADRADOS DE LA CONSTRUCION ACADEMICA
-  mts2_no_acad numeric(9,3), -- AREA EN METROS CUADRADOS DE LA CONSTRUCION NO ACADEMICA  
-  estado character(1) DEFAULT 'A'::bpchar, -- ESTADO EN EL QUE SE ENCUENTRA EL AREA CONSTRUIDA A-CTIVO O I-NACTIVO
+  nombre character varying(50)  NOT NULL, -- NOMBRE DEL ESPACIO FISICO
+  id_sede integer  NOT NULL, -- IDENTIFICADOR DE LA SEDE EN LA CUAL SE ENCUETRA EL AREA CONSTRUIDA
+  num_pisos integer  NOT NULL, -- NUMERO DE PISOS DEL AREA CONSTRUIDA
+  mts2 numeric(9,3)  NOT NULL,  -- AREA TOTAL EN METROS CUADRADOS 
+  mts2_acad numeric(9,3)  NOT NULL, -- AREA EN METROS CUADRADOS DE LA CONSTRUCION ACADEMICA
+  mts2_no_acad numeric(9,3)  NOT NULL, -- AREA EN METROS CUADRADOS DE LA CONSTRUCION NO ACADEMICA  
+  estado character(1) DEFAULT 'A'::bpchar  NOT NULL, -- ESTADO EN EL QUE SE ENCUENTRA EL AREA CONSTRUIDA A-CTIVO O I-NACTIVO
   CONSTRAINT pk_gener_area_construida PRIMARY KEY (id_area_construida), --LLAVE PRIMARIA - IDENTIFICADOR UNICO DE LA TABLA general.gener_area_construida
   CONSTRAINT fk_gener_area_construida_id_sede FOREIGN KEY (id_sede) --LLAVE FORANEA - IDENTIFICADOR  ASOCIA LAS TABLAS general.gener_area_construida Y general.gener_sede
       REFERENCES general.gener_sede (id_sede) MATCH SIMPLE

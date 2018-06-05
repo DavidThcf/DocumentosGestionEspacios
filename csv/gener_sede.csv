@@ -1,8 +1,10 @@
-id_sede;nombre;cod_localizacion
-1;Tuquerres;04652838
-2;Ipiales;04652356
-3;Tumaco;04652835
-4;Samaniego;04652678
-5;Centro;04652001
-6;Vipri;04652001
-7;Torobajo;04652001
+id_sede;nombre;cod_localizacion;estado
+1;Tuquerres;04652838;A
+2;Ipiales;04652356;A
+3;Tumaco;04652835;A
+4;Samaniego;04652678;A
+5;Centro;04652001;A
+6;Vipri;04652001;A
+7;Torobajo;04652001;A
+14;Granja;04608549;I
+16;Granja Botana;04652227;A

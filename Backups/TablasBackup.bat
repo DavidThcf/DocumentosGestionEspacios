@@ -4,7 +4,7 @@ cd C:\Program Files (x86)\pgAdmin 4\v2\runtime
 set host=localhost
 set port=5433
 set user=postgres
-set dbname=udenarSubir
+set dbname=ciudenar
 set dir=D:\datacsv\Backups
 
 pg_dump.exe --host %host% --port %port% --username %user% --no-password  --format custom --verbose --file "%dir%\gener_sede.backup" --table "general.gener_sede" %dbname%
