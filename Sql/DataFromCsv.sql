@@ -1,18 +1,14 @@
-﻿/*DO $$
-DECLARE  
-   dir character varying := 'D:\datacsv\csv\gener_sede.csv'; 
-BEGIN
-	RAISE NOTICE'%', dir;
-	truncate general.gener_sede cascade;
-	COPY general.gener_sede FROM dir DELIMITER ';' CSV HEADER;
-	select setval('general.gener_sede_id_sede_seq', (select max(id_sede) from general.gener_sede));
-END $$;*/
-   
-
-truncate general.gener_sede cascade;
+﻿truncate general.gener_sede cascade;
 COPY general.gener_sede FROM 'D:\datacsv\csv\gener_sede.csv' DELIMITER ';' CSV HEADER;
 select setval('general.gener_sede_id_sede_seq', (select max(id_sede) from general.gener_sede));
 
+truncate general.gener_atributos cascade;
+COPY general.gener_atributos  FROM 'D:\datacsv\csv\gener_atributos.csv' DELIMITER ';' CSV HEADER;
+select setval('general.gener_atributos_id_atributo_seq', (select max(id_atributo) from general.gener_atributos ));
+
+truncate general.gener_unidad_atributos cascade;
+COPY general.gener_unidad_atributos  FROM 'D:\datacsv\csv\gener_unidad_atributos.csv' DELIMITER ';' CSV HEADER;
+select setval('general.gener_unidad_atributos_id_unidad_atr_seq', (select max(id_unidad_atr) from general.gener_unidad_atributos ));
 
 truncate general.gener_area_construida cascade;
 COPY general.gener_area_construida FROM 'D:\datacsv\csv\gener_area_construida.csv' DELIMITER ';' CSV HEADER;
