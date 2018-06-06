@@ -10,14 +10,4 @@ integrar con seguridad,
 integrar con programacion academica,
 buscar simbolo mt2
 
-
-cambiar pk			ok
-unique  nombr tipo_espacio	ok	
-cambiar chk_			ok
-
-crear tabla edificio
-id_edificio
-nombre -- unique
-
-
-unique  hora plan_horario_espacio
+Solucionar index delete 
