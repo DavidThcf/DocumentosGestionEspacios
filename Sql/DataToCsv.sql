@@ -12,19 +12,19 @@ COPY general.gener_tipo_espacio TO'D:\datacsv\csv\gener_tipo_espacio.csv' DELIMI
 
 COPY general.gener_atributos_espacio_fisico  TO'D:\datacsv\csv\gener_atributos_espacio_fisico.csv' DELIMITER ';'CSV HEADER;
 
-COPY planeacion.plan_dia  TO'D:\datacsv\csv\plan_dia.csv' DELIMITER ';' CSV HEADER;
+COPY administrativo.admin_dia  TO'D:\datacsv\csv\admin_dia.csv' DELIMITER ';' CSV HEADER;
 
-COPY planeacion.plan_horario_aula  TO'D:\datacsv\csv\plan_horario_aula.csv' DELIMITER ';' CSV HEADER;
+COPY administrativo.admin_horario_aula  TO'D:\datacsv\csv\admin_horario_aula.csv' DELIMITER ';' CSV HEADER;
 
-COPY planeacion.plan_asignacion_aula  TO'D:\datacsv\csv\plan_asignacion_aula.csv' DELIMITER ';'CSV HEADER;
+COPY administrativo.admin_asignacion_aula  TO'D:\datacsv\csv\admin_asignacion_aula.csv' DELIMITER ';'CSV HEADER;
 
-COPY planeacion.plan_solicitante  TO'D:\datacsv\csv\plan_solicitante.csv' DELIMITER ';' CSV HEADER;
+COPY administrativo.admin_solicitante  TO'D:\datacsv\csv\admin_solicitante.csv' DELIMITER ';' CSV HEADER;
 
-COPY planeacion.plan_evento  TO'D:\datacsv\csv\plan_evento.csv' DELIMITER ';' CSV HEADER;
+COPY administrativo.admin_evento  TO'D:\datacsv\csv\admin_evento.csv' DELIMITER ';' CSV HEADER;
 
-COPY planeacion.plan_solicitud  TO'D:\datacsv\csv\plan_solicitud.csv' DELIMITER ';' CSV HEADER;
+COPY administrativo.admin_solicitud  TO'D:\datacsv\csv\admin_solicitud.csv' DELIMITER ';' CSV HEADER;
 
-COPY planeacion.plan_horario_espacio  TO'D:\datacsv\csv\plan_horario_espacio.csv' DELIMITER ';' CSV HEADER;
+COPY administrativo.admin_horario_espacio  TO'D:\datacsv\csv\admin_horario_espacio.csv' DELIMITER ';' CSV HEADER;
 
-COPY planeacion.plan_asignacion_espacio  TO'D:\datacsv\csv\plan_asignacion_espacio.csv' DELIMITER ';' CSV HEADER;
+COPY administrativo.admin_asignacion_espacio  TO'D:\datacsv\csv\admin_asignacion_espacio.csv' DELIMITER ';' CSV HEADER;
 

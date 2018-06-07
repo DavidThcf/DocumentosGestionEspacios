@@ -218,64 +218,64 @@ COMMENT ON CONSTRAINT fk_gener_unidad_atributos_id_unidad ON general.gener_unida
 
 
 
--- Schema: planeacion
+-- Schema: administrativo
 
-DROP SCHEMA planeacion CASCADE;
-CREATE SCHEMA planeacion
+DROP SCHEMA IF EXISTS administrativo CASCADE;
+CREATE SCHEMA administrativo
   AUTHORIZATION postgres;
 
 
-  -- Table: planeacion.plan_dia
+  -- Table: administrativo.admin_dia
 
-DROP TABLE IF EXISTS  planeacion.plan_dia CASCADE;
-CREATE TABLE planeacion.plan_dia
+DROP TABLE IF EXISTS  administrativo.admin_dia CASCADE;
+CREATE TABLE administrativo.admin_dia
 (
   id_dia serial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA DIA
   nombre character varying(50), -- NOMBRE DEL DIA 
-  CONSTRAINT pk_plan_dia PRIMARY KEY (id_dia),  -- LLAVE PRIMARIA - IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_dia
-  CONSTRAINT uk_plan_dia_nombre UNIQUE(nombre)
+  CONSTRAINT pk_admin_dia PRIMARY KEY (id_dia),  -- LLAVE PRIMARIA - IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_dia
+  CONSTRAINT uk_admin_dia_nombre UNIQUE(nombre)
 )
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE planeacion.plan_dia
+ALTER TABLE administrativo.admin_dia
   OWNER TO postgres;
-COMMENT ON TABLE planeacion.plan_dia
+COMMENT ON TABLE administrativo.admin_dia
   IS 'REPRESENTA LOS ATRIBUTOS QUE PERTENECEN A UNA UNIDAD';
-COMMENT ON COLUMN planeacion.plan_dia.id_dia IS 'IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_dia';
-COMMENT ON COLUMN planeacion.plan_dia.nombre IS 'NOMBRE DEL DIA';
-COMMENT ON CONSTRAINT pk_plan_dia ON planeacion.plan_dia IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_dia';
+COMMENT ON COLUMN administrativo.admin_dia.id_dia IS 'IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_dia';
+COMMENT ON COLUMN administrativo.admin_dia.nombre IS 'NOMBRE DEL DIA';
+COMMENT ON CONSTRAINT pk_admin_dia ON administrativo.admin_dia IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_dia';
 
 
--- Table: planeacion.plan_horario_aula
+-- Table: administrativo.admin_horario_aula
 
-DROP TABLE IF EXISTS  planeacion.plan_horario_aula CASCADE;
+DROP TABLE IF EXISTS  administrativo.admin_horario_aula CASCADE;
 
-CREATE TABLE planeacion.plan_horario_aula
+CREATE TABLE administrativo.admin_horario_aula
 (
   id_horario_aula serial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA HORARIO AULA
   hora character varying(10), -- REPRESENTA LA HORA 
   jornada char(2),
-  CONSTRAINT pk_plan_horario_aula PRIMARY KEY (id_horario_aula), -- LLAVE PRIMARIA - IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_horario_aula
-  CONSTRAINT uk_plan_horario_aula_hora_jornada UNIQUE(hora,jornada),
-  CONSTRAINT chk_plan_horario_aula_jornada CHECK(jornada = 'AM' or jornada='PM')
+  CONSTRAINT pk_admin_horario_aula PRIMARY KEY (id_horario_aula), -- LLAVE PRIMARIA - IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_horario_aula
+  CONSTRAINT uk_admin_horario_aula_hora_jornada UNIQUE(hora,jornada),
+  CONSTRAINT chk_admin_horario_aula_jornada CHECK(jornada = 'AM' or jornada='PM')
 )
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE planeacion.plan_horario_aula
+ALTER TABLE administrativo.admin_horario_aula
   OWNER TO postgres;
-COMMENT ON TABLE planeacion.plan_horario_aula
+COMMENT ON TABLE administrativo.admin_horario_aula
   IS 'REPRESENTA EL HORARIO DE ESPACIOS FISICOS AULAS';
-COMMENT ON COLUMN planeacion.plan_horario_aula.id_horario_aula IS 'IDENTIFICADOR UNICO DE LA TABLA HORARIO AULA';
-COMMENT ON COLUMN planeacion.plan_horario_aula.hora IS 'HORA DEL DIA';
-COMMENT ON CONSTRAINT pk_plan_horario_aula ON planeacion.plan_horario_aula IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_horario_aula';
+COMMENT ON COLUMN administrativo.admin_horario_aula.id_horario_aula IS 'IDENTIFICADOR UNICO DE LA TABLA HORARIO AULA';
+COMMENT ON COLUMN administrativo.admin_horario_aula.hora IS 'HORA DEL DIA';
+COMMENT ON CONSTRAINT pk_admin_horario_aula ON administrativo.admin_horario_aula IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_horario_aula';
 
--- Table: planeacion.plan_asignacion_aula
+-- Table: administrativo.admin_asignacion_aula
 
-DROP TABLE IF EXISTS  planeacion.plan_asignacion_aula CASCADE;
+DROP TABLE IF EXISTS  administrativo.admin_asignacion_aula CASCADE;
 
-CREATE TABLE planeacion.plan_asignacion_aula
+CREATE TABLE administrativo.admin_asignacion_aula
 (
   id_asign_aula serial NOT NULL, -- IDENTIFICADOR UNICO DE DE LA TABLA ASIGNACION AULAS
   id_atributos_espacio_fisico integer, -- IDENTIFICADOR DEL ESPACIO FISICO QUE SE VA ASIGNAR
@@ -288,73 +288,73 @@ CREATE TABLE planeacion.plan_asignacion_aula
   programa character varying(100), -- PROGRAMA AL CUAL SE VA ASIGNAR EL AULA
   materia character varying(100), -- MATERIA AL CUAL SE VA ASIGNAR EL AULA
   profesor character varying(100), -- PROFESOR AL CUAL SE VA ASIGNAR EL AULA
-  CONSTRAINT pk_plan_asign_aula PRIMARY KEY (id_asign_aula),  -- LLAVE PRIMARIA - IDENTIFICADOR UNICO DE DE LA TABLA planeacion.plan_asignacion_aula
-  CONSTRAINT fk_plan_asign_aula_id_dia FOREIGN KEY (id_dia) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_aula Y planeacion.plan_dia
-      REFERENCES planeacion.plan_dia (id_dia) MATCH SIMPLE
+  CONSTRAINT pk_admin_asign_aula PRIMARY KEY (id_asign_aula),  -- LLAVE PRIMARIA - IDENTIFICADOR UNICO DE DE LA TABLA administrativo.admin_asignacion_aula
+  CONSTRAINT fk_admin_asign_aula_id_dia FOREIGN KEY (id_dia) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_aula Y administrativo.admin_dia
+      REFERENCES administrativo.admin_dia (id_dia) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fk_plan_asign_aula_id_atributos_espacio_fisico FOREIGN KEY (id_atributos_espacio_fisico) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_aula Y general.gener_atributos_espacio_fisico
+  CONSTRAINT fk_admin_asign_aula_id_atributos_espacio_fisico FOREIGN KEY (id_atributos_espacio_fisico) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_aula Y general.gener_atributos_espacio_fisico
       REFERENCES general.gener_atributos_espacio_fisico (id_atributos_espacio_fisico) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fk_plan_asign_aula_id_horario FOREIGN KEY (id_horario_aula) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_aula Y planeacion.plan_horario
-      REFERENCES planeacion.plan_horario_aula (id_horario_aula) MATCH SIMPLE
+  CONSTRAINT fk_admin_asign_aula_id_horario FOREIGN KEY (id_horario_aula) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_aula Y administrativo.admin_horario
+      REFERENCES administrativo.admin_horario_aula (id_horario_aula) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT chk_plan_asignacion_aula_semestre CHECK (semestre = 'A'::bpchar OR semestre = 'B'::bpchar)
+  CONSTRAINT chk_admin_asignacion_aula_semestre CHECK (semestre = 'A'::bpchar OR semestre = 'B'::bpchar)
 )
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE planeacion.plan_asignacion_aula
+ALTER TABLE administrativo.admin_asignacion_aula
   OWNER TO postgres;
   
-COMMENT ON TABLE planeacion.plan_asignacion_aula
+COMMENT ON TABLE administrativo.admin_asignacion_aula
   IS 'REPRESENTA EL HORARIO DE ESPACIOS FISICOS AULAS';
-COMMENT ON COLUMN planeacion.plan_asignacion_aula.id_asign_aula IS 'IDENTIFICADOR UNICO DE DE LA TABLA ASIGNACION AULAS';
-COMMENT ON COLUMN planeacion.plan_asignacion_aula.id_atributos_espacio_fisico IS 'IDENTIFICADOR DEL ESPACIO FISICO QUE SE VA ASIGNAR';
-COMMENT ON COLUMN planeacion.plan_asignacion_aula.id_dia IS 'IDENTIFICADOR DEL DIA QUE SE VA ASIGNAR';
-COMMENT ON COLUMN planeacion.plan_asignacion_aula.id_horario_aula IS 'IDENTIFICADOR DE LA HORA QUE SE VA ASIGNAR';
-COMMENT ON COLUMN planeacion.plan_asignacion_aula.semestre IS 'SEMESTRE EN CUAL SE VA ASIGNAR EL AULA';
-COMMENT ON COLUMN planeacion.plan_asignacion_aula.año IS 'AÑO EN EL CUAL SE VA ASIGNAR EL AULA';
-COMMENT ON COLUMN planeacion.plan_asignacion_aula.facultad IS 'FACULTAD DEL PROGRAMA AL CUAL SE VA ASIGNAR EL AULA';
-COMMENT ON COLUMN planeacion.plan_asignacion_aula.color IS 'COLOR QUE REPRESENTA LA FACULTAD';
-COMMENT ON COLUMN planeacion.plan_asignacion_aula.programa IS 'PROGRAMA AL CUAL SE VA ASIGNAR EL AULA';
-COMMENT ON COLUMN planeacion.plan_asignacion_aula.materia IS 'MATERIA AL CUAL SE VA ASIGNAR EL AULA';
-COMMENT ON COLUMN planeacion.plan_asignacion_aula.profesor IS 'PROFESOR AL CUAL SE VA ASIGNAR EL AULA';
-COMMENT ON CONSTRAINT pk_plan_asign_aula ON planeacion.plan_asignacion_aula IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_asignacion_aula';
-COMMENT ON CONSTRAINT fk_plan_asign_aula_id_dia ON planeacion.plan_asignacion_aula IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_aula Y planeacion.plan_dia';
-COMMENT ON CONSTRAINT fk_plan_asign_aula_id_atributos_espacio_fisico ON planeacion.plan_asignacion_aula IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_aula Y general.gener_atributos_espacio_fisico';
-COMMENT ON CONSTRAINT fk_plan_asign_aula_id_horario ON planeacion.plan_asignacion_aula IS ' LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_aula Y planeacion.plan_horario';
+COMMENT ON COLUMN administrativo.admin_asignacion_aula.id_asign_aula IS 'IDENTIFICADOR UNICO DE DE LA TABLA ASIGNACION AULAS';
+COMMENT ON COLUMN administrativo.admin_asignacion_aula.id_atributos_espacio_fisico IS 'IDENTIFICADOR DEL ESPACIO FISICO QUE SE VA ASIGNAR';
+COMMENT ON COLUMN administrativo.admin_asignacion_aula.id_dia IS 'IDENTIFICADOR DEL DIA QUE SE VA ASIGNAR';
+COMMENT ON COLUMN administrativo.admin_asignacion_aula.id_horario_aula IS 'IDENTIFICADOR DE LA HORA QUE SE VA ASIGNAR';
+COMMENT ON COLUMN administrativo.admin_asignacion_aula.semestre IS 'SEMESTRE EN CUAL SE VA ASIGNAR EL AULA';
+COMMENT ON COLUMN administrativo.admin_asignacion_aula.año IS 'AÑO EN EL CUAL SE VA ASIGNAR EL AULA';
+COMMENT ON COLUMN administrativo.admin_asignacion_aula.facultad IS 'FACULTAD DEL PROGRAMA AL CUAL SE VA ASIGNAR EL AULA';
+COMMENT ON COLUMN administrativo.admin_asignacion_aula.color IS 'COLOR QUE REPRESENTA LA FACULTAD';
+COMMENT ON COLUMN administrativo.admin_asignacion_aula.programa IS 'PROGRAMA AL CUAL SE VA ASIGNAR EL AULA';
+COMMENT ON COLUMN administrativo.admin_asignacion_aula.materia IS 'MATERIA AL CUAL SE VA ASIGNAR EL AULA';
+COMMENT ON COLUMN administrativo.admin_asignacion_aula.profesor IS 'PROFESOR AL CUAL SE VA ASIGNAR EL AULA';
+COMMENT ON CONSTRAINT pk_admin_asign_aula ON administrativo.admin_asignacion_aula IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_asignacion_aula';
+COMMENT ON CONSTRAINT fk_admin_asign_aula_id_dia ON administrativo.admin_asignacion_aula IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_aula Y administrativo.admin_dia';
+COMMENT ON CONSTRAINT fk_admin_asign_aula_id_atributos_espacio_fisico ON administrativo.admin_asignacion_aula IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_aula Y general.gener_atributos_espacio_fisico';
+COMMENT ON CONSTRAINT fk_admin_asign_aula_id_horario ON administrativo.admin_asignacion_aula IS ' LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_aula Y administrativo.admin_horario';
 
--- Table: planeacion.plan_solicitante
-DROP TABLE IF EXISTS  planeacion.plan_solicitante CASCADE;
+-- Table: administrativo.admin_solicitante
+DROP TABLE IF EXISTS  administrativo.admin_solicitante CASCADE;
 
-CREATE TABLE planeacion.plan_solicitante
+CREATE TABLE administrativo.admin_solicitante
 (
   id_solicitante serial NOT NULL, -- IDENTIFICACION UNICO DE LA TABLA SOLICITANTE
   cedula character varying(50), -- CEDULA DEL SOLICITANTE
   nombre character varying(100), -- NOMBRE DEL SOLICITANTE
   ocupacion character varying(100), -- OCUPACION DEL SOLICITANTE
   celular character varying(100), -- CELULAR DEL SOLICITANTE
-  CONSTRAINT pk_plan_solicitante PRIMARY KEY (id_solicitante), -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_solicitante
-  CONSTRAINT uk_plan_solicitante_cedula UNIQUE (cedula) 
+  CONSTRAINT pk_admin_solicitante PRIMARY KEY (id_solicitante), -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_solicitante
+  CONSTRAINT uk_admin_solicitante_cedula UNIQUE (cedula) 
 )
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE planeacion.plan_solicitante
+ALTER TABLE administrativo.admin_solicitante
   OWNER TO postgres;
-COMMENT ON TABLE planeacion.plan_solicitante
+COMMENT ON TABLE administrativo.admin_solicitante
   IS 'REPRESENTA EL SOLICITANTE DE UN EVENTO';
-COMMENT ON COLUMN planeacion.plan_solicitante.id_solicitante IS 'IDENTIFICACION UNICO DE LA TABLA SOLICITANTE';
-COMMENT ON COLUMN planeacion.plan_solicitante.cedula IS 'CEDULA DEL SOLICITANTE';
-COMMENT ON COLUMN planeacion.plan_solicitante.nombre IS 'NOMBRE DEL SOLICITANTE';
-COMMENT ON COLUMN planeacion.plan_solicitante.ocupacion IS 'OCUPACION DEL SOLICITANTE';
-COMMENT ON COLUMN planeacion.plan_solicitante.celular IS 'CELULAR DEL SOLICITANTE';
-COMMENT ON CONSTRAINT pk_plan_solicitante ON planeacion.plan_solicitante IS 'LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_solicitante';
+COMMENT ON COLUMN administrativo.admin_solicitante.id_solicitante IS 'IDENTIFICACION UNICO DE LA TABLA SOLICITANTE';
+COMMENT ON COLUMN administrativo.admin_solicitante.cedula IS 'CEDULA DEL SOLICITANTE';
+COMMENT ON COLUMN administrativo.admin_solicitante.nombre IS 'NOMBRE DEL SOLICITANTE';
+COMMENT ON COLUMN administrativo.admin_solicitante.ocupacion IS 'OCUPACION DEL SOLICITANTE';
+COMMENT ON COLUMN administrativo.admin_solicitante.celular IS 'CELULAR DEL SOLICITANTE';
+COMMENT ON CONSTRAINT pk_admin_solicitante ON administrativo.admin_solicitante IS 'LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_solicitante';
 
--- Table: planeacion.plan_evento
-DROP TABLE IF EXISTS  planeacion.plan_evento CASCADE;
+-- Table: administrativo.admin_evento
+DROP TABLE IF EXISTS  administrativo.admin_evento CASCADE;
 
-CREATE TABLE planeacion.plan_evento
+CREATE TABLE administrativo.admin_evento
 (
   id_evento serial NOT NULL, -- IDENTIFICACION UNICO DE LA TABLA EVENTO
   fecha_evento date, -- FECHA DEL EVENTO
@@ -364,33 +364,33 @@ CREATE TABLE planeacion.plan_evento
   riesgos character varying(500), -- RIESGOS  DEL EVENTO
   acciones character varying(500), -- ACCIONES  DEL EVENTO  
   observacion character varying(100), -- OBSERVACION DE LA ASIGNACION
-  CONSTRAINT pk_plan_evento PRIMARY KEY (id_evento) -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_evento
+  CONSTRAINT pk_admin_evento PRIMARY KEY (id_evento) -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_evento
 )
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE planeacion.plan_evento
+ALTER TABLE administrativo.admin_evento
   OWNER TO postgres;
-COMMENT ON TABLE planeacion.plan_evento
+COMMENT ON TABLE administrativo.admin_evento
   IS 'REPRESENTA LOS EVENTOS A LOS CUALES SE ASIGNA UN ESPACIO FISICO';
-COMMENT ON COLUMN planeacion.plan_evento.id_evento IS 'IDENTIFICACION UNICO DE LA TABLA EVENTO';
-COMMENT ON COLUMN planeacion.plan_evento.fecha_evento IS 'FECHA DEL EVENTO';
-COMMENT ON COLUMN planeacion.plan_evento.fecha_solicitud IS 'FECHA DEL SOLICITUD';
-COMMENT ON COLUMN planeacion.plan_evento.nombre IS 'NOMBRE DEL EVENTO';
-COMMENT ON COLUMN planeacion.plan_evento.objetivo IS 'OBJETIVO  DEL EVENTO';
-COMMENT ON COLUMN planeacion.plan_evento.riesgos IS 'RIESGOS  DEL EVENTO';
-COMMENT ON COLUMN planeacion.plan_evento.acciones IS 'ACCIONES  DEL EVENTO ';
-COMMENT ON COLUMN planeacion.plan_evento.observacion IS 'OBSERVACION  DEL EVENTO ';
-COMMENT ON CONSTRAINT pk_plan_evento ON planeacion.plan_evento IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_evento';
+COMMENT ON COLUMN administrativo.admin_evento.id_evento IS 'IDENTIFICACION UNICO DE LA TABLA EVENTO';
+COMMENT ON COLUMN administrativo.admin_evento.fecha_evento IS 'FECHA DEL EVENTO';
+COMMENT ON COLUMN administrativo.admin_evento.fecha_solicitud IS 'FECHA DEL SOLICITUD';
+COMMENT ON COLUMN administrativo.admin_evento.nombre IS 'NOMBRE DEL EVENTO';
+COMMENT ON COLUMN administrativo.admin_evento.objetivo IS 'OBJETIVO  DEL EVENTO';
+COMMENT ON COLUMN administrativo.admin_evento.riesgos IS 'RIESGOS  DEL EVENTO';
+COMMENT ON COLUMN administrativo.admin_evento.acciones IS 'ACCIONES  DEL EVENTO ';
+COMMENT ON COLUMN administrativo.admin_evento.observacion IS 'OBSERVACION  DEL EVENTO ';
+COMMENT ON CONSTRAINT pk_admin_evento ON administrativo.admin_evento IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_evento';
 
 
 
 
--- Table: planeacion.plan_solicitud
+-- Table: administrativo.admin_solicitud
 
-DROP TABLE IF EXISTS  planeacion.plan_solicitud CASCADE;
+DROP TABLE IF EXISTS  administrativo.admin_solicitud CASCADE;
 
-CREATE TABLE planeacion.plan_solicitud
+CREATE TABLE administrativo.admin_solicitud
 (
   id_solicitud serial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA SOLICITUD
   fecha_solicitud timestamp with time zone, -- FECHA DE LA SOLICITUD
@@ -405,66 +405,66 @@ CREATE TABLE planeacion.plan_solicitud
   observacion character varying(500), -- OBSERVACION DE LA SOLICITUD
   horario_espacio json, -- HORAS QUE SE SOLICITAN
   estado character(1) DEFAULT 'N'::bpchar, --  ESTADO EN EL QUE SE ENCUENTRA LA SOLICITUD
-  CONSTRAINT pk_plan_solicitud PRIMARY KEY (id_solicitud), -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_solicitud
-  CONSTRAINT fk_plan_solicitud_id_evento FOREIGN KEY (id_evento) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_solicitud  Y planeacion.plan_evento
-      REFERENCES planeacion.plan_evento (id_evento) MATCH SIMPLE
+  CONSTRAINT pk_admin_solicitud PRIMARY KEY (id_solicitud), -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_solicitud
+  CONSTRAINT fk_admin_solicitud_id_evento FOREIGN KEY (id_evento) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_solicitud  Y administrativo.admin_evento
+      REFERENCES administrativo.admin_evento (id_evento) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fk_plan_solicitud_id_atributos_espacio_fisico FOREIGN KEY (id_atributos_espacio_fisico) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_solicitud  Y general.gener_atributos_espacio_fisico
+  CONSTRAINT fk_admin_solicitud_id_atributos_espacio_fisico FOREIGN KEY (id_atributos_espacio_fisico) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_solicitud  Y general.gener_atributos_espacio_fisico
       REFERENCES general.gener_atributos_espacio_fisico (id_atributos_espacio_fisico) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT chk_plan_solicitud_estado CHECK (estado = 'N'::bpchar OR estado = 'A'::bpchar OR estado = 'R'::bpchar OR estado = 'D'::bpchar) -- LLAVE UNICA -  N-Sin Revisar; A-probado; R-echazado
+  CONSTRAINT chk_admin_solicitud_estado CHECK (estado = 'N'::bpchar OR estado = 'A'::bpchar OR estado = 'R'::bpchar OR estado = 'D'::bpchar) -- LLAVE UNICA -  N-Sin Revisar; A-probado; R-echazado
 )
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE planeacion.plan_solicitud
+ALTER TABLE administrativo.admin_solicitud
   OWNER TO postgres;
-COMMENT ON TABLE planeacion.plan_solicitud
+COMMENT ON TABLE administrativo.admin_solicitud
   IS 'REPRESENTA EL HORARIO DE ESPACIOS FISICOS';
-COMMENT ON COLUMN planeacion.plan_solicitud.id_solicitud IS 'IDENTIFICADOR UNICO DE LA TABLA SOLICITUD';
-COMMENT ON COLUMN planeacion.plan_solicitud.fecha_solicitud IS 'FECHA DE LA SOLICITUD';
-COMMENT ON COLUMN planeacion.plan_solicitud.id_solicitante IS 'IDENTIFICACION DEL SOLICITANTE';
-COMMENT ON COLUMN planeacion.plan_solicitud.id_responsable IS 'IDENTIFICACION DEL RESPONSABLE';
-COMMENT ON COLUMN planeacion.plan_solicitud.nombre_responsable IS 'NOMBRE DEL RESPONSABLE';
-COMMENT ON COLUMN planeacion.plan_solicitud.cargo_responsable IS 'CARGO  DEL RESPONSABLE';
-COMMENT ON COLUMN planeacion.plan_solicitud.oficina_responsable IS 'OFICINA  DEL RESPONSABLE';
-COMMENT ON COLUMN planeacion.plan_solicitud.celular_responsable IS 'CELULAR  DEL RESPONSABLE';
-COMMENT ON COLUMN planeacion.plan_solicitud.id_evento IS 'IDENTIFICADOR DEL EVENTO';
-COMMENT ON COLUMN planeacion.plan_solicitud.id_atributos_espacio_fisico IS 'ESPACIO FISICO QUE SE VA A SOLICITAR';
-COMMENT ON COLUMN planeacion.plan_solicitud.observacion IS 'OBSERVACION DE LA SOLICITUD';
-COMMENT ON COLUMN planeacion.plan_solicitud.horario_espacio IS 'HORAS QUE SE SOLICITAN';
-COMMENT ON COLUMN planeacion.plan_solicitud.estado IS 'ESTADO EN EL QUE SE ENCUENTRA LA SOLICITUD';
-COMMENT ON CONSTRAINT pk_plan_solicitud ON planeacion.plan_solicitud IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_solicitud';
-COMMENT ON CONSTRAINT fk_plan_solicitud_id_evento ON planeacion.plan_solicitud IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_solicitud Y planeacion.plan_evento';
-COMMENT ON CONSTRAINT fk_plan_solicitud_id_atributos_espacio_fisico ON planeacion.plan_solicitud IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_solicitud Y general.espacio_fisico';
+COMMENT ON COLUMN administrativo.admin_solicitud.id_solicitud IS 'IDENTIFICADOR UNICO DE LA TABLA SOLICITUD';
+COMMENT ON COLUMN administrativo.admin_solicitud.fecha_solicitud IS 'FECHA DE LA SOLICITUD';
+COMMENT ON COLUMN administrativo.admin_solicitud.id_solicitante IS 'IDENTIFICACION DEL SOLICITANTE';
+COMMENT ON COLUMN administrativo.admin_solicitud.id_responsable IS 'IDENTIFICACION DEL RESPONSABLE';
+COMMENT ON COLUMN administrativo.admin_solicitud.nombre_responsable IS 'NOMBRE DEL RESPONSABLE';
+COMMENT ON COLUMN administrativo.admin_solicitud.cargo_responsable IS 'CARGO  DEL RESPONSABLE';
+COMMENT ON COLUMN administrativo.admin_solicitud.oficina_responsable IS 'OFICINA  DEL RESPONSABLE';
+COMMENT ON COLUMN administrativo.admin_solicitud.celular_responsable IS 'CELULAR  DEL RESPONSABLE';
+COMMENT ON COLUMN administrativo.admin_solicitud.id_evento IS 'IDENTIFICADOR DEL EVENTO';
+COMMENT ON COLUMN administrativo.admin_solicitud.id_atributos_espacio_fisico IS 'ESPACIO FISICO QUE SE VA A SOLICITAR';
+COMMENT ON COLUMN administrativo.admin_solicitud.observacion IS 'OBSERVACION DE LA SOLICITUD';
+COMMENT ON COLUMN administrativo.admin_solicitud.horario_espacio IS 'HORAS QUE SE SOLICITAN';
+COMMENT ON COLUMN administrativo.admin_solicitud.estado IS 'ESTADO EN EL QUE SE ENCUENTRA LA SOLICITUD';
+COMMENT ON CONSTRAINT pk_admin_solicitud ON administrativo.admin_solicitud IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_solicitud';
+COMMENT ON CONSTRAINT fk_admin_solicitud_id_evento ON administrativo.admin_solicitud IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_solicitud Y administrativo.admin_evento';
+COMMENT ON CONSTRAINT fk_admin_solicitud_id_atributos_espacio_fisico ON administrativo.admin_solicitud IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_solicitud Y general.espacio_fisico';
 
 
--- Table: planeacion.plan_horario_espacio
+-- Table: administrativo.admin_horario_espacio
 
-DROP TABLE IF EXISTS  planeacion.plan_horario_espacio CASCADE;
+DROP TABLE IF EXISTS  administrativo.admin_horario_espacio CASCADE;
 
-CREATE TABLE planeacion.plan_horario_espacio
+CREATE TABLE administrativo.admin_horario_espacio
 (
   id_horario_espacio serial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA HORARIO ESPACIO
   hora character varying(10), -- HORA 
-  CONSTRAINT pk_plan_horario_espacio PRIMARY KEY (id_horario_espacio) -- LLAVE PRIMARIA - IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_horario_espacio
+  CONSTRAINT pk_admin_horario_espacio PRIMARY KEY (id_horario_espacio) -- LLAVE PRIMARIA - IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_horario_espacio
 )
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE planeacion.plan_horario_espacio
+ALTER TABLE administrativo.admin_horario_espacio
   OWNER TO postgres;
-COMMENT ON TABLE planeacion.plan_horario_espacio
+COMMENT ON TABLE administrativo.admin_horario_espacio
   IS 'REPRESENTA LA TABLA DE HORARIO ESPACIO';
-COMMENT ON COLUMN planeacion.plan_horario_espacio.id_horario_espacio IS 'IDENTIFICADOR UNICO DE LA TABLA SOLICITUD';
-COMMENT ON COLUMN planeacion.plan_horario_espacio.hora IS 'HORA';
-COMMENT ON CONSTRAINT pk_plan_horario_espacio ON planeacion.plan_horario_espacio IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_horario_espacio';
+COMMENT ON COLUMN administrativo.admin_horario_espacio.id_horario_espacio IS 'IDENTIFICADOR UNICO DE LA TABLA SOLICITUD';
+COMMENT ON COLUMN administrativo.admin_horario_espacio.hora IS 'HORA';
+COMMENT ON CONSTRAINT pk_admin_horario_espacio ON administrativo.admin_horario_espacio IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_horario_espacio';
 
--- Table: planeacion.plan_asignacion_espacio
+-- Table: administrativo.admin_asignacion_espacio
 
-DROP TABLE IF EXISTS  planeacion.plan_asignacion_espacio CASCADE;
+DROP TABLE IF EXISTS  administrativo.admin_asignacion_espacio CASCADE;
 
-CREATE TABLE planeacion.plan_asignacion_espacio
+CREATE TABLE administrativo.admin_asignacion_espacio
 (
   id_asign_espacio_fisico serial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA ASIGNACION ESPACIO
   id_atributos_espacio_fisico integer, -- ESPACIO FISICO QUE SE VA ASIGNAR
@@ -476,40 +476,40 @@ CREATE TABLE planeacion.plan_asignacion_espacio
   oficina_responsable character varying(100), -- OFICINA  DEL RESPONSABLE
   celular_responsable character varying(100), -- CELULAR  DEL RESPONSABLE
   id_evento integer NOT NULL, -- IDENTIFICADOR QUE REPRESENTA EL EVENTO AL CUAL SE ASIGNA EL ESPACIO
-  CONSTRAINT pk_plan_asignacion_espacio PRIMARY KEY (id_asign_espacio_fisico), -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_asignacion_espacio
-  CONSTRAINT fk_plan_asignacion_espacio_id_atributos_espacio_fisico FOREIGN KEY (id_atributos_espacio_fisico) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio  Y general.gener_espacio_fisico
+  CONSTRAINT pk_admin_asignacion_espacio PRIMARY KEY (id_asign_espacio_fisico), -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_asignacion_espacio
+  CONSTRAINT fk_admin_asignacion_espacio_id_atributos_espacio_fisico FOREIGN KEY (id_atributos_espacio_fisico) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_espacio  Y general.gener_espacio_fisico
       REFERENCES general.gener_atributos_espacio_fisico (id_atributos_espacio_fisico) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fk_plan_asignacion_espacio_id_horario_espacio FOREIGN KEY (id_horario_espacio) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio  Y planeacion.plan_horario_espacio
-      REFERENCES planeacion.plan_horario_espacio (id_horario_espacio) MATCH SIMPLE
+  CONSTRAINT fk_admin_asignacion_espacio_id_horario_espacio FOREIGN KEY (id_horario_espacio) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_espacio  Y administrativo.admin_horario_espacio
+      REFERENCES administrativo.admin_horario_espacio (id_horario_espacio) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fk_plan_asignacion_espacio_id_solicitante FOREIGN KEY (id_solicitante) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio  Y planeacion.plan_solicitante
-      REFERENCES planeacion.plan_solicitante(id_solicitante) MATCH SIMPLE
+  CONSTRAINT fk_admin_asignacion_espacio_id_solicitante FOREIGN KEY (id_solicitante) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_espacio  Y administrativo.admin_solicitante
+      REFERENCES administrativo.admin_solicitante(id_solicitante) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fk_plan_asignacion_espacio_id_evento FOREIGN KEY (id_evento) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio  Y planeacion.plan_evento
-      REFERENCES planeacion.plan_evento(id_evento) MATCH SIMPLE
+  CONSTRAINT fk_admin_asignacion_espacio_id_evento FOREIGN KEY (id_evento) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_espacio  Y administrativo.admin_evento
+      REFERENCES administrativo.admin_evento(id_evento) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT uk_fecha_evento_hora UNIQUE ( id_atributos_espacio_fisico, id_horario_espacio, id_evento)
 )
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE planeacion.plan_asignacion_espacio
+ALTER TABLE administrativo.admin_asignacion_espacio
   OWNER TO postgres;
-COMMENT ON TABLE planeacion.plan_asignacion_espacio
+COMMENT ON TABLE administrativo.admin_asignacion_espacio
   IS 'REPRESENTA LA TABLA DE ASIGNACION DE ESPACIOS FISICOS';
-COMMENT ON COLUMN planeacion.plan_asignacion_espacio.id_asign_espacio_fisico IS 'IDENTIFICADOR UNICO DE LA TABLA SOLICITUD';
-COMMENT ON COLUMN planeacion.plan_asignacion_espacio.id_atributos_espacio_fisico IS 'ESPACIO FISICO QUE SE VA ASIGNAR';
-COMMENT ON COLUMN planeacion.plan_asignacion_espacio.id_horario_espacio IS 'ESPACIO FISICO QUE SE VA A SOLICITAR';
-COMMENT ON COLUMN planeacion.plan_asignacion_espacio.id_solicitante IS 'IDENTIFICACION DEL SOLICITANTE';
-COMMENT ON COLUMN planeacion.plan_asignacion_espacio.cedula_responsable IS 'IDENTIFICACION DEL RESPONSABLE';
-COMMENT ON COLUMN planeacion.plan_asignacion_espacio.nombre_responsable IS 'NOMBRE DEL RESPONSABLE';
-COMMENT ON COLUMN planeacion.plan_asignacion_espacio.cargo_responsable IS 'CARGO  DEL RESPONSABLE';
-COMMENT ON COLUMN planeacion.plan_asignacion_espacio.oficina_responsable IS 'OFICINA  DEL RESPONSABLE';
-COMMENT ON COLUMN planeacion.plan_asignacion_espacio.celular_responsable IS 'CELULAR  DEL RESPONSABLE';
-COMMENT ON COLUMN planeacion.plan_asignacion_espacio.id_evento IS 'IDENTIFICADOR QUE REPRESENTA EL EVENTO AL CUAL SE ASIGNA EL ESPACIO';
-COMMENT ON CONSTRAINT pk_plan_asignacion_espacio ON planeacion.plan_asignacion_espacio IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA planeacion.plan_asignacion_espacio';
-COMMENT ON CONSTRAINT fk_plan_asignacion_espacio_id_atributos_espacio_fisico ON planeacion.plan_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio Y general.espacio_fisico';
-COMMENT ON CONSTRAINT fk_plan_asignacion_espacio_id_horario_espacio ON planeacion.plan_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio Y planeacion.plan_horario_espacio';
-COMMENT ON CONSTRAINT fk_plan_asignacion_espacio_id_solicitante ON planeacion.plan_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio Y planeacion.plan_solicitante';
-COMMENT ON CONSTRAINT fk_plan_asignacion_espacio_id_evento ON planeacion.plan_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS planeacion.plan_asignacion_espacio Y planeacion.plan_evento';
+COMMENT ON COLUMN administrativo.admin_asignacion_espacio.id_asign_espacio_fisico IS 'IDENTIFICADOR UNICO DE LA TABLA SOLICITUD';
+COMMENT ON COLUMN administrativo.admin_asignacion_espacio.id_atributos_espacio_fisico IS 'ESPACIO FISICO QUE SE VA ASIGNAR';
+COMMENT ON COLUMN administrativo.admin_asignacion_espacio.id_horario_espacio IS 'ESPACIO FISICO QUE SE VA A SOLICITAR';
+COMMENT ON COLUMN administrativo.admin_asignacion_espacio.id_solicitante IS 'IDENTIFICACION DEL SOLICITANTE';
+COMMENT ON COLUMN administrativo.admin_asignacion_espacio.cedula_responsable IS 'IDENTIFICACION DEL RESPONSABLE';
+COMMENT ON COLUMN administrativo.admin_asignacion_espacio.nombre_responsable IS 'NOMBRE DEL RESPONSABLE';
+COMMENT ON COLUMN administrativo.admin_asignacion_espacio.cargo_responsable IS 'CARGO  DEL RESPONSABLE';
+COMMENT ON COLUMN administrativo.admin_asignacion_espacio.oficina_responsable IS 'OFICINA  DEL RESPONSABLE';
+COMMENT ON COLUMN administrativo.admin_asignacion_espacio.celular_responsable IS 'CELULAR  DEL RESPONSABLE';
+COMMENT ON COLUMN administrativo.admin_asignacion_espacio.id_evento IS 'IDENTIFICADOR QUE REPRESENTA EL EVENTO AL CUAL SE ASIGNA EL ESPACIO';
+COMMENT ON CONSTRAINT pk_admin_asignacion_espacio ON administrativo.admin_asignacion_espacio IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA administrativo.admin_asignacion_espacio';
+COMMENT ON CONSTRAINT fk_admin_asignacion_espacio_id_atributos_espacio_fisico ON administrativo.admin_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_espacio Y general.espacio_fisico';
+COMMENT ON CONSTRAINT fk_admin_asignacion_espacio_id_horario_espacio ON administrativo.admin_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_espacio Y administrativo.admin_horario_espacio';
+COMMENT ON CONSTRAINT fk_admin_asignacion_espacio_id_solicitante ON administrativo.admin_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_espacio Y administrativo.admin_solicitante';
+COMMENT ON CONSTRAINT fk_admin_asignacion_espacio_id_evento ON administrativo.admin_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.admin_asignacion_espacio Y administrativo.admin_evento';
