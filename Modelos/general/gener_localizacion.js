@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   return sequelize.define('gener_localizacion', {
     cod_localizacion: {
       type: DataTypes.STRING,
@@ -36,6 +36,6 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-      tableName: 'gener_localizacion'
-    });
+    tableName: 'gener_localizacion'
+  });
 };

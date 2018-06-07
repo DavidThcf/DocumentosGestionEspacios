@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('plan_evento', {
+  return sequelize.define('admin_evento', {
     id_evento: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -37,6 +37,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'plan_evento'
+    tableName: 'admin_evento'
   });
 };

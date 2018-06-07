@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('plan_solicitud', {
+  return sequelize.define('admin_solicitud', {
     id_solicitud: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -40,7 +40,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'plan_evento',
+        model: 'admin_evento',
         key: 'id_evento'
       }
     },
@@ -66,6 +66,6 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: 'N'
     }
   }, {
-    tableName: 'plan_solicitud'
+    tableName: 'admin_solicitud'
   });
 };

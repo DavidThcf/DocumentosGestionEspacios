@@ -1,27 +1,37 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('plan_asignacion_espacio', {
+  return sequelize.define('admin_asignacion_espacio', {
     id_asign_espacio_fisico: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 'nextval(planeacion.plan_asignacion_espacio_id_asign_espacio_fisico_seq::regclass)',
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     id_atributos_espacio_fisico: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      primaryKey: true
+      references: {
+        model: 'gener_atributos_espacio_fisico',
+        key: 'id_atributos_espacio_fisico'
+      },
+      unique: true
     },
     id_horario_espacio: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      primaryKey: true
+      references: {
+        model: 'admin_horario_espacio',
+        key: 'id_horario_espacio'
+      }
     },
     id_solicitante: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      references: {
+        model: 'admin_solicitante',
+        key: 'id_solicitante'
+      }
     },
     cedula_responsable: {
       type: DataTypes.STRING,
@@ -46,9 +56,12 @@ module.exports = function(sequelize, DataTypes) {
     id_evento: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      references: {
+        model: 'admin_evento',
+        key: 'id_evento'
+      }
     }
   }, {
-    tableName: 'plan_asignacion_espacio'
+    tableName: 'admin_asignacion_espacio'
   });
 };

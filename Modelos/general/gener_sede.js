@@ -10,11 +10,16 @@ module.exports = function(sequelize, DataTypes) {
     },
     nombre: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
     cod_localizacion: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
+    },
+    estado: {
+      type: DataTypes.CHAR,
+      allowNull: false,
+      defaultValue: 'A'
     }
   }, {
     tableName: 'gener_sede'

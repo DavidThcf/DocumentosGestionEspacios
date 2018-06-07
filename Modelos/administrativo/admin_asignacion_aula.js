@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('plan_asignacion_aula', {
+  return sequelize.define('admin_asignacion_aula', {
     id_asign_aula: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'plan_dia',
+        model: 'admin_dia',
         key: 'id_dia'
       }
     },
@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'plan_horario_aula',
+        model: 'admin_horario_aula',
         key: 'id_horario_aula'
       }
     },
@@ -61,6 +61,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'plan_asignacion_aula'
+    tableName: 'admin_asignacion_aula'
   });
 };

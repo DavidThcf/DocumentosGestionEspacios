@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('plan_horario_espacio', {
+  return sequelize.define('admin_horario_espacio', {
     id_horario_espacio: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -13,6 +13,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'plan_horario_espacio'
+    tableName: 'admin_horario_espacio'
   });
 };

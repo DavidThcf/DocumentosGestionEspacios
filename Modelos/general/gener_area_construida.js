@@ -10,12 +10,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     nombre: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       unique: true
     },
     id_sede: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'gener_sede',
         key: 'id_sede'
@@ -23,23 +23,23 @@ module.exports = function(sequelize, DataTypes) {
     },
     num_pisos: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     },
     mts2: {
       type: DataTypes.DOUBLE,
-      allowNull: true
+      allowNull: false
     },
     mts2_acad: {
       type: DataTypes.DOUBLE,
-      allowNull: true
+      allowNull: false
     },
     mts2_no_acad: {
       type: DataTypes.DOUBLE,
-      allowNull: true
+      allowNull: false
     },
     estado: {
       type: DataTypes.CHAR,
-      allowNull: true,
+      allowNull: false,
       defaultValue: 'A'
     }
   }, {
