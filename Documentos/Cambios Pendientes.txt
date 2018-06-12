@@ -2,12 +2,15 @@ amarillo - seleccionado
 verde - libre 
 rojo - ocupado
 
-cambiar los botones lineales,
+solucionar problema con sdes al guardar,
+cambiar mayusculas boton asignar aula,
+cambiar orden botones asiganr aaula,
+cambiar los botones lineales, OK
 iconos  por icono facultad,
-presentacion de las tablas,
-capitilzacion - ortografia,
+presentacion de las tablas, OK
+capitilzacion - ortografia, OK
 integrar con seguridad,
 integrar con programacion academica,
-buscar simbolo mt2
+buscar simbolo mt2 OK
 
 Solucionar index delete 
