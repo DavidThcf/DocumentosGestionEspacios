@@ -1,0 +1,10 @@
+clonar argus
+crear .env
+
+ingresar http://90.1.1.31/phpldapadmin/
+
+
+cedula = 1085303922
+id persona tabla db = 10874
+id tabla segur_usuario = 28
+id segur_nivel sistema administrativo = 17
