@@ -13,8 +13,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     id_solicitante: {
-      type: DataTypes.STRING,
-      allowNull: true
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'gesfi_solicitante',
+        key: 'id_solicitante'
+      }
     },
     id_responsable: {
       type: DataTypes.STRING,

@@ -10,8 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     cedula: {
       type: DataTypes.STRING,
-      allowNull: true,
-      unique: true
+      allowNull: true
     },
     nombre: {
       type: DataTypes.STRING,

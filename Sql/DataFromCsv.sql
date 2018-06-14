@@ -2,6 +2,7 @@
 COPY general.gener_sede FROM 'D:\datacsv\csv\gener_sede.csv' DELIMITER ';' CSV HEADER;
 select setval('general.gener_sede_id_sede_seq', (select max(id_sede) from general.gener_sede));
 
+/*
 truncate general.gener_atributos cascade;
 COPY general.gener_atributos  FROM 'D:\datacsv\csv\gener_atributos.csv' DELIMITER ';' CSV HEADER;
 select setval('general.gener_atributos_id_atributo_seq', (select max(id_atributo) from general.gener_atributos ));
@@ -9,7 +10,7 @@ select setval('general.gener_atributos_id_atributo_seq', (select max(id_atributo
 truncate general.gener_unidad_atributos cascade;
 COPY general.gener_unidad_atributos  FROM 'D:\datacsv\csv\gener_unidad_atributos.csv' DELIMITER ';' CSV HEADER;
 select setval('general.gener_unidad_atributos_id_unidad_atr_seq', (select max(id_unidad_atr) from general.gener_unidad_atributos ));
-
+*/
 truncate general.gener_area_construida cascade;
 COPY general.gener_area_construida FROM 'D:\datacsv\csv\gener_area_construida.csv' DELIMITER ';' CSV HEADER;
 select setval('general.gener_area_construida_id_area_construida_seq', (select max(id_area_construida) from general.gener_area_construida));
@@ -25,6 +26,10 @@ select setval('general.gener_tipo_espacio_id_tipo_espacio_seq', (select max(id_t
 truncate general.gener_atributos_espacio_fisico cascade;
 COPY general.gener_atributos_espacio_fisico  FROM 'D:\datacsv\csv\gener_atributos_espacio_fisico.csv' DELIMITER ';' CSV HEADER;
 select setval('general.gener_atributos_espacio_fisico_id_atributos_espacio_fisico_seq', (select max(id_atributos_espacio_fisico) from general.gener_atributos_espacio_fisico));
+
+truncate administrativo.gesfi_unidad_atributos cascade;
+COPY administrativo.gesfi_unidad_atributos  FROM 'D:\datacsv\csv\gesfi_unidad_atributos.csv' DELIMITER ';' CSV HEADER;
+select setval('administrativo.gesfi_unidad_atributos_id_unidad_atr_seq', (select max(id_unidad_atr) from administrativo.gesfi_unidad_atributos ));
 
 truncate administrativo.gesfi_dia cascade;
 COPY administrativo.gesfi_dia  FROM 'D:\datacsv\csv\gesfi_dia.csv' DELIMITER ';' CSV HEADER;

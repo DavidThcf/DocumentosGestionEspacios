@@ -224,6 +224,34 @@ DROP SCHEMA IF EXISTS administrativo CASCADE;
 CREATE SCHEMA administrativo
   AUTHORIZATION postgres;
 
+-- Table: administrativo.gesfi_unidad_atributos
+
+DROP TABLE IF EXISTS  administrativo.gesfi_unidad_atributos CASCADE;
+
+CREATE TABLE administrativo.gesfi_unidad_atributos
+(
+  id_unidad_atr smallserial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA UNIDAD ATRIBUTOS
+  id_unidad integer, -- IDENTIFICADOR DE LA UNIDAD
+  valor character varying, -- VALOR DEL ATRIBUTO  
+  CONSTRAINT pk_gesfi_unidad_atributos PRIMARY KEY (id_unidad_atr), -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA administrativogesfi_unidad_atributos
+  CONSTRAINT fk_gesfi_unidad_atributos_id_unidad FOREIGN KEY (id_unidad) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativogesfi_unidad_atributos Y general.gener_unidad
+      REFERENCES general.gener_unidad (id_unidad) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE administrativo.gesfi_unidad_atributos
+  OWNER TO postgres;
+COMMENT ON TABLE administrativo.gesfi_unidad_atributos
+  IS 'REPRESENTA LOS ATRIBUTOS QUE PERTENECEN A UNA UNIDAD';
+COMMENT ON COLUMN administrativo.gesfi_unidad_atributos.id_unidad_atr IS 'IDENTIFICADOR UNICO DE LA TABLA ATRIBUTOS ';
+COMMENT ON COLUMN administrativo.gesfi_unidad_atributos.id_unidad IS 'VALOR DEL ATRIBUTO ';
+COMMENT ON COLUMN administrativo.gesfi_unidad_atributos.valor IS 'IDENTIFICADOR DE LA UNIDAD';
+COMMENT ON CONSTRAINT pk_gesfi_unidad_atributos ON administrativo.gesfi_unidad_atributos IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA administrativo.gesfi_unidad_atributos';
+COMMENT ON CONSTRAINT fk_gesfi_unidad_atributos_id_unidad ON administrativo.gesfi_unidad_atributos IS 'LLAVE FORANEA – IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_unidad_atributos Y administrativo.gesfi_unidad';
+
+
 
   -- Table: administrativo.gesfi_dia
 

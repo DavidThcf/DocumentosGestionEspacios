@@ -12,8 +12,7 @@ pg_dump.exe --host %host% --port %port% --username %user% --no-password  --forma
 pg_dump.exe --host %host% --port %port% --username %user% --no-password  --format custom --verbose --file "%dir%\gener_tipo_espacios.backup" --table "general.gener_tipo_espacio" %dbname%
 pg_dump.exe --host %host% --port %port% --username %user% --no-password  --format custom --verbose --file "%dir%\gener_espacio_fisico.backup" --table "general.gener_espacio_fisico" %dbname%
 pg_dump.exe --host %host% --port %port% --username %user% --no-password  --format custom --verbose --file "%dir%\gener_atributos_espacio_fisico.backup" --table "general.gener_atributos_espacio_fisico" %dbname%
-pg_dump.exe --host %host% --port %port% --username %user% --no-password  --format custom --verbose --file "%dir%\gener_atributos.backup" --table "general.gener_atributos" "%dbname%"
-pg_dump.exe --host %host% --port %port% --username %user% --no-password  --format custom --verbose --file "%dir%\gener_unidad_atributos.backup" --table "general.gener_unidad_atributos" %dbname%
+pg_dump.exe --host %host% --port %port% --username %user% --no-password  --format custom --verbose --file "%dir%\gesfi_unidad_atributos.backup" --table "administrativo.gesfi_unidad_atributos" %dbname%
 pg_dump.exe --host %host% --port %port% --username %user% --no-password  --format custom --verbose --file "%dir%\gesfi_dia.backup" --table "administrativo.gesfi_dia" %dbname%
 pg_dump.exe --host %host% --port %port% --username %user% --no-password  --format custom --verbose --file "%dir%\gesfi_horario_aula.backup" --table "administrativo.gesfi_horario_aula" %dbname%
 pg_dump.exe --host %host% --port %port% --username %user% --no-password  --format custom --verbose --file "%dir%\gesfi_solicitante.backup" --table "administrativo.gesfi_solicitante" %dbname%
