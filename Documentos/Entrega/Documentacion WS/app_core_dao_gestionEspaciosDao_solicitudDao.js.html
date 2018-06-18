@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: app_core/dao/gestionEspaciosDao/solicitudDao.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: app_core/dao/gestionEspaciosDao/solicitudDao.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ *@file Archivo que contiene el modulo gestionEspaciosDao
+ *@name solicitudDao.js
+ *@author David Estrada&lt;thcf962@hotmail.com>
+ *@license UDENAR
+ *@copyright 2018 udenar
+ */
+
+var Models = require("../../../app_core/models/index");
+var sequelize = Models.sequelize;
+var Q = require("q");
+
+
+/**
+ * Gestiona todas la información referente las solicitudes de espacios físicos
+ * @module SolicitudDao
+ */
+
+/**
+ * Función que permite obtener la lista de solicitudes realizadas
+ */
+var findAll = function () {
+    return Models.Solicitud.findAll({
+        include: [
+            {
+                model: Models.GenerAtributosEspacioFisico,
+                attributes: ['id_atributos_espacio_fisico'],
+                include: [
+                    {
+                        model: Models.GenerAreaConstruida,
+                        attributes: ['id_area_construida', 'nombre'],
+                        include: [{
+                            model: Models.GenerSede, as:'Sede',
+                            attributes: ['id_sede', 'nombre']
+                        }]
+                    },
+                    {
+                        model: Models.GenerEspacioFisico,
+                        attributes: ['nombre']
+                    }
+                ]
+            },
+            {
+                model: Models.Solicitante
+            },
+            {
+                model: Models.Evento
+            }
+        ],
+        order: [
+            ['fecha_solicitud']
+        ]
+    });
+};
+
+/**
+ * Función que permite obtener la lista de solicitudes reacibidas
+ */
+var findNotChecked = function () {
+    return Models.Solicitud.findAll({
+        include: [
+            {
+                model: Models.GenerAtributosEspacioFisico,
+                attributes: ['id_atributos_espacio_fisico'],
+                include: [
+                    {
+                        model: Models.GenerAreaConstruida,
+                        attributes: ['id_area_construida', 'nombre'],
+                        include: [{
+                            model: Models.GenerSede, as:'Sede',
+                            attributes: ['id_sede', 'nombre']
+                        }]
+                    },
+                    {
+                        model: Models.GenerEspacioFisico,
+                        attributes: ['nombre']
+                    }
+                ]
+            },
+            {
+                model: Models.Solicitante
+            },
+            {
+                model: Models.Evento
+            }
+        ],
+        where: {
+            estado: 'N'
+        },
+        order: [
+            ['fecha_solicitud']
+        ]
+    });
+};
+
+/**
+ * Funcion que permite acceder a los pasos necesarios para crear  una solicitud
+ * @param {json} solicitud - Objeto con la informacion necesaria para crear una solicitud de asignacion de un espacio fisico
+ */
+var create = function (solicitud) {
+    console.log('\n*********HORARIO*********\n');
+    console.log(solicitud);
+    var deferred = Q.defer();
+
+    return sequelize.transaction({ autocommit: false }).then(function (t) {
+        createEvento(solicitud, t, deferred);
+        return deferred.promise;
+    });
+};
+
+/**
+ * Funcion que permite  crear un evento
+ * @param {json} solicitud - Objeto con la informacion necesaria para crear una solicitud de asignacion de un espacio fisico
+ */
+var createEvento = (solicitud, t, deferred) => {
+    Models.Evento.create(
+        {
+            fecha_evento: solicitud.fecha_evento,
+            fecha_solicitud: solicitud.fecha_solicitud,
+            nombre: solicitud.nombre_evento,
+            objetivo: solicitud.obj_evento,
+            riesgos: solicitud.riesgos,
+            acciones: solicitud.acciones,
+            observacion: ''
+        },
+        { transaction: t, returning: true }
+    ).then(function (evento) {
+        createSolicitante(solicitud, evento, t, deferred);
+    }).catch(function (error) {
+        deferred.reject(error);
+    });
+
+}
+
+/**
+ * Funcion que permite  crear un solicitante
+ * @param {json} solicitud - Objeto con la informacion necesaria para crear una solicitud de asignacion de un espacio fisico
+ * @param {json} evento - Objeto con la informacion del evento necesaria para crear una solicitud
+ */
+var createSolicitante = (solicitud, evento, t, deferred) => {
+    Models.Solicitante.create(
+        {
+            cedula: solicitud.cedula_solicitante,
+            nombre: solicitud.nombre_solicitante,
+            ocupacion: solicitud.ocupacion_solicitante,
+            celular: solicitud.celular_solicitante
+
+        }, { transaction: t, returning: true }
+    ).then(function (solicitante) {
+        createSolicitud(solicitud, evento, solicitante, t, deferred);
+    }).catch(function (error) {
+        deferred.reject(error);
+    });
+}
+
+/**
+ * Funcion que permite  crear una solicitud
+ * @param {json} solicitud - Objeto con la informacion necesaria para crear una solicitud de asignacion de un espacio fisico
+ * @param {json} evento - Objeto con la informacion del evento necesaria para crear una solicitud
+ */
+var createSolicitud = (solicitud, evento, solicitante, t, deferred) => {
+    Models.Solicitud.create(
+        {
+            fecha_solicitud: solicitud.fecha_solicitud,
+            id_solicitante: solicitante.id_solicitante,
+            id_responsable: solicitud.id_responsable,
+            nombre_responsable: solicitud.nombre_responsable,
+            cargo_responsable: solicitud.cargo_responsable,
+            oficina_responsable: solicitud.oficina_responsable,
+            celular_responsable: solicitud.celular_responsable,
+            id_evento: evento.id_evento,
+            id_atributos_espacio_fisico: solicitud.id_atributos_espacio_fisico,
+            observacion: solicitud.observacion,
+            horario_espacio: solicitud.asignacion
+
+        }, { transaction: t, returning: true }
+    ).then(function (solicitud) {
+        t.commit();
+        deferred.resolve(solicitud);
+    }).catch(function (error) {
+        deferred.reject(error);
+    });
+}
+
+/**
+ * Funcion que permite  rechazar una solicitud
+ * @param {json} solicitud - Objeto con la informacion necesaria para rechazar una solicitud
+ */
+var rejectSolicitud = function (solicitud) {
+    return Models.Solicitud.update(
+        {
+            estado: 'R',
+            observacion: solicitud.observacion
+        },
+        {
+            where: {
+                id_solicitud: solicitud.id_solicitud
+            }
+        }
+    );
+}
+
+/**
+ * Funcion que permite  eliminar una solicitud
+ * @param {json} solicitud - Objeto con la informacion necesaria para eliminar una solicitud
+ */
+var deleteSolicitud = function (solicitud) {
+    return Models.Solicitud.destroy({
+        where: {
+            id_solicitud: solicitud.id_solicitud
+        }
+    });
+
+}
+
+module.exports.findAll = findAll;
+module.exports.findNotChecked = findNotChecked;
+module.exports.create = create;
+module.exports.rejectSolicitud = rejectSolicitud;
+module.exports.deleteSolicitud = deleteSolicitud;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AreaConstruidaController.html">AreaConstruidaController</a></li><li><a href="module-AreaConstruidaDao.html">AreaConstruidaDao</a></li><li><a href="module-AsignacionAulaController.html">AsignacionAulaController</a></li><li><a href="module-AsignacionAulaDao.html">AsignacionAulaDao</a></li><li><a href="module-AsignacionEspacioDao.html">AsignacionEspacioDao</a></li><li><a href="module-EspacioFisicoController.html">EspacioFisicoController</a></li><li><a href="module-EspacioFisicoDao.html">EspacioFisicoDao</a></li><li><a href="module-FuncionesSeguridad.html">FuncionesSeguridad</a></li><li><a href="module-GestionEspaciosIndex.html">GestionEspaciosIndex</a></li><li><a href="module-SedeController.html">SedeController</a></li><li><a href="module-SedeDao.html">SedeDao</a></li><li><a href="module-SolicitudController.html">SolicitudController</a></li><li><a href="module-SolicitudDao.html">SolicitudDao</a></li><li><a href="module-TipoEspacioController.html">TipoEspacioController</a></li><li><a href="module-TipoEspacioDao.html">TipoEspacioDao</a></li><li><a href="module-UnidadController.html">UnidadController</a></li><li><a href="module-UnidadDao.html">UnidadDao</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jun 17 2018 23:39:04 GMT-0500 (Hora est. Pacífico, Sudamérica)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
