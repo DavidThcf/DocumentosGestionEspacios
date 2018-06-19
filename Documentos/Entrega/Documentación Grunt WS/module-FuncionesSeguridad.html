@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: FuncionesSeguridad</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: FuncionesSeguridad</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Modulo que agrupa todas las funciones de seguridad de autenticacion de tokens y desencriptacion de la informacion</div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="app_gestion_espacios_api_helpers_funcionesSeguridad.js.html">app_gestion_espacios_api/helpers/funcionesSeguridad.js</a>, <a href="app_gestion_espacios_api_helpers_funcionesSeguridad.js.html#line12">line 12</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~autorizacion"><span class="type-signature">(inner) </span>autorizacion<span class="signature">(req, res, next)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    funcion middleware que administra y valida la autenticacion a traves del token conectandose con el servidor ARGUS
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">objeto de peticion.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">objeto de respuesta.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>next</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">funcion next.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="app_gestion_espacios_api_helpers_funcionesSeguridad.js.html">app_gestion_espacios_api/helpers/funcionesSeguridad.js</a>, <a href="app_gestion_espacios_api_helpers_funcionesSeguridad.js.html#line24">line 24</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    next- funcion next para continuar con la ejecucion del codigo que llama al middleware
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">function</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AreaConstruidaController.html">AreaConstruidaController</a></li><li><a href="module-AreaConstruidaDao.html">AreaConstruidaDao</a></li><li><a href="module-AsignacionAulaController.html">AsignacionAulaController</a></li><li><a href="module-AsignacionAulaDao.html">AsignacionAulaDao</a></li><li><a href="module-AsignacionEspacioDao.html">AsignacionEspacioDao</a></li><li><a href="module-EspacioFisicoController.html">EspacioFisicoController</a></li><li><a href="module-EspacioFisicoDao.html">EspacioFisicoDao</a></li><li><a href="module-FuncionesSeguridad.html">FuncionesSeguridad</a></li><li><a href="module-GestionEspaciosIndex.html">GestionEspaciosIndex</a></li><li><a href="module-SedeController.html">SedeController</a></li><li><a href="module-SedeDao.html">SedeDao</a></li><li><a href="module-SolicitudController.html">SolicitudController</a></li><li><a href="module-SolicitudDao.html">SolicitudDao</a></li><li><a href="module-TipoEspacioController.html">TipoEspacioController</a></li><li><a href="module-TipoEspacioDao.html">TipoEspacioDao</a></li><li><a href="module-UnidadController.html">UnidadController</a></li><li><a href="module-UnidadDao.html">UnidadDao</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jun 18 2018 14:31:41 GMT-0500 (Hora est. Pacífico, Sudamérica)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

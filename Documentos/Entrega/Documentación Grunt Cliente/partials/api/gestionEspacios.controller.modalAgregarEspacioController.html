@@ -1,0 +1,121 @@
+<h1><code ng:non-bindable="">modalAgregarEspacioController</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">gestionEspacios</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="gestionespacios-controller-page gestionespacios-controller-modalagregarespaciocontroller-page"><p>Este controlador permite administrar todo el comportamiento e informacion para agregar un Espacios Fisicos</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/ng.$scope">$scope</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/ng.$location">$location</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/autenticacion">autenticacion</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/SweetAlert">SweetAlert</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/AreaService">AreaService</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/EspacioService">EspacioService</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/UnidadService">UnidadService</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/HelpersService">HelpersService</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/MensajesService">MensajesService</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/ng.$uibModalInstance">$uibModalInstance</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/Alertify">Alertify</a></code>
+</li>
+</ul>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_btnactualizarnombre">btnActualizarNombre()</h3>
+<div class="btnactualizarnombre"><div class="btnactualizarnombre-page"><p>permite actualizar los nombres de los espacios fisicos</p>
+</div></div>
+</li>
+<li><h3 id="methods_btncancelarnombre">btnCancelarNombre()</h3>
+<div class="btncancelarnombre"><div class="btncancelarnombre-page"><p>permite eliminar salir de la actualización del nombre de espacios fisicos</p>
+</div></div>
+</li>
+<li><h3 id="methods_btneditarnombre">btnEditarNombre(nombreEspacio)</h3>
+<div class="btneditarnombre"><div class="btneditarnombre-page"><p>Muestra el formulario para agregar nombre de espacio fisico</p>
+</div><h5 id="methods_btneditarnombre_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>nombreEspacio</td><td><a href="" class="label type-hint type-hint-json">json</a></td><td><div class="btneditarnombre-page"><p>Objeto que representa el nombre del espacio físico</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_btneliminarnombre">btnEliminarNombre(nombreEspacio, $index)</h3>
+<div class="btneliminarnombre"><div class="btneliminarnombre-page"><p>permite eliminar los nombres de los espacios fisicos</p>
+</div><h5 id="methods_btneliminarnombre_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>nombreEspacio</td><td><a href="" class="label type-hint type-hint-json">json</a></td><td><div class="btneliminarnombre-page"><p>Objeto con la información del nombre del espacio físico que se va a eliminar</p>
+</div></td></tr><tr><td>$index</td><td><a href="" class="label type-hint type-hint-integer">integer</a></td><td><div class="btneliminarnombre-page"><p>posición del nombre del espacio físico que se va eliminar</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_btnguardarnombre">btnGuardarNombre()</h3>
+<div class="btnguardarnombre"><div class="btnguardarnombre-page"><p>Permite Guardar un nombre para espacios fisicos</p>
+</div></div>
+</li>
+<li><h3 id="methods_btnnuevoespacio">btnNuevoEspacio()</h3>
+<div class="btnnuevoespacio"><div class="btnnuevoespacio-page"><p>Permite crear nuevos espacios fisicos</p>
+</div></div>
+</li>
+<li><h3 id="methods_btnnuevoespacio">btnNuevoEspacio()</h3>
+<div class="btnnuevoespacio"><div class="btnnuevoespacio-page"><p>Muestra el formulario para agregar nombre de espacio fisico</p>
+</div></div>
+</li>
+<li><h3 id="methods_cancel">cancel()</h3>
+<div class="cancel"><div class="cancel-page"><p>permite cerrar el formulario de creacion de nombres de espacios fisicos</p>
+</div></div>
+</li>
+<li><h3 id="methods_capitalize">capitalize(cadena)</h3>
+<div class="capitalize"><div class="capitalize-page"><p>permite cambiar el formtao del texto a capitalize</p>
+</div><h5 id="methods_capitalize_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>cadena</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="capitalize-page"><p>Texto de la cadena que se va a aplicar el estilo capitalize</p>
+</div></td></tr></tbody></table><h5 id="methods_capitalize_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="capitalize-page"><p>cadena con estilo capitalize</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_init">init()</h3>
+<div class="init"><div class="init-page"><p>este metodo inicial</p>
+</div></div>
+</li>
+<li><h3 id="methods_sort">sort(keyname)</h3>
+<div class="sort"><div class="sort-page"><p>ordena los datos de la tabla nombre espacios fisicos</p>
+</div><h5 id="methods_sort_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>keyname</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="sort-page"><p>representa el nombre de la columna que se va a ordenar</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_areaconst">areaConst</h3>
+<div class="areaconst"><div class="areaconst-page"><p>esta variable representa el área construida</p>
+</div></div>
+</li>
+<li><h3 id="properties_disponibilidad">disponibilidad</h3>
+<div class="disponibilidad"><div class="disponibilidad-page"><p>esta variable representa la informacion de la disponibilidad de los espacios físicos</p>
+</div></div>
+</li>
+<li><h3 id="properties_isnewname">isNewName</h3>
+<div class="isnewname"><div class="isnewname-page"><p>esta variable representa si se esta agregando un nombre al espacio fisico</p>
+</div></div>
+</li>
+<li><h3 id="properties_nombresespacio">nombresEspacio</h3>
+<div class="nombresespacio"><div class="nombresespacio-page"><p>esta variable representa lista de nombres de espacio físico</p>
+</div></div>
+</li>
+<li><h3 id="properties_pisos">pisos</h3>
+<div class="pisos"><div class="pisos-page"><p>esta variable representa los pisos que tiene un área construida</p>
+</div></div>
+</li>
+<li><h3 id="properties_sede">sede</h3>
+<div class="sede"><div class="sede-page"><p>esta variable representa la sede </p>
+</div></div>
+</li>
+<li><h3 id="properties_sortkey">sortKey</h3>
+<div class="sortkey"><div class="sortkey-page"><p>esta variable representa la columna que se va  ordenar</p>
+</div></div>
+</li>
+<li><h3 id="properties_unidades">unidades</h3>
+<div class="unidades"><div class="unidades-page"><p>esta variable representa la lista de unidades</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

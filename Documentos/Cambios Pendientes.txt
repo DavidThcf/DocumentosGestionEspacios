@@ -1,16 +1,16 @@
+solucionar problema con sdes al guardar, OK
+cambiar mayusculas boton asignar aula, OK
+cambiar orden botones asiganr aaula, OK
+cambiar los botones lineales, OK
+presentacion de las tablas, OK
+capitilzacion - ortografia, OK
+integrar con seguridad, OK
+buscar simbolo mt2 OK
+Solucionar index delete, OK
+Solucionar persona encargada,
+iconos por icono facultad,
 amarillo - seleccionado
 verde - libre 
 rojo - ocupado
-
-solucionar problema con sdes al guardar,
-cambiar mayusculas boton asignar aula,
-cambiar orden botones asiganr aaula,
-cambiar los botones lineales, OK
-iconos  por icono facultad,
-presentacion de las tablas, OK
-capitilzacion - ortografia, OK
-integrar con seguridad,
 integrar con programacion academica,
-buscar simbolo mt2 OK
 
-Solucionar index delete 
