@@ -423,11 +423,7 @@ CREATE TABLE administrativo.gesfi_solicitud
   id_solicitud serial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA SOLICITUD
   fecha_solicitud timestamp with time zone, -- FECHA DE LA SOLICITUD
   id_solicitante integer NOT NULL, -- IDENTIFICACION DEL SOLICITANTE
-  id_responsable character varying, -- IDENTIFICACION DEL RESPONSABLE
-  nombre_responsable character varying(100), -- NOMBRE DEL RESPONSABLE
-  cargo_responsable character varying(100), -- CARGO  DEL RESPONSABLE
-  oficina_responsable character varying(100), -- OFICINA  DEL RESPONSABLE
-  celular_responsable character varying(100), -- CELULAR  DEL RESPONSABLE
+  id_persona integer NOT NULL, --IDENTIFICACION DE LA PERSONA RESPONSABLE
   id_evento integer NOT NULL, -- IDENTIFICADOR DEL EVENTO
   id_atributos_espacio_fisico integer NOT NULL, -- ESPACIO FISICO QUE SE VA A SOLICITAR  
   observacion character varying(500), -- OBSERVACION DE LA SOLICITUD
@@ -436,6 +432,9 @@ CREATE TABLE administrativo.gesfi_solicitud
   CONSTRAINT pk_gesfi_solicitud PRIMARY KEY (id_solicitud), -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA administrativo.gesfi_solicitud
   CONSTRAINT fk_gesfi_solicitud_id_solicitante FOREIGN KEY (id_solicitante) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_solicitud  Y administrativo.gesfi_solicitante
       REFERENCES administrativo.gesfi_solicitante (id_solicitante) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fk_gesfi_solicitud_id_persona FOREIGN KEY (id_persona) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_solicitud  Y general.gener_persona
+      REFERENCES general.gener_persona (id_persona) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT fk_gesfi_solicitud_id_evento FOREIGN KEY (id_evento) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_solicitud  Y administrativo.gesfi_evento
       REFERENCES administrativo.gesfi_evento (id_evento) MATCH SIMPLE
@@ -455,11 +454,7 @@ COMMENT ON TABLE administrativo.gesfi_solicitud
 COMMENT ON COLUMN administrativo.gesfi_solicitud.id_solicitud IS 'IDENTIFICADOR UNICO DE LA TABLA SOLICITUD';
 COMMENT ON COLUMN administrativo.gesfi_solicitud.fecha_solicitud IS 'FECHA DE LA SOLICITUD';
 COMMENT ON COLUMN administrativo.gesfi_solicitud.id_solicitante IS 'IDENTIFICACION DEL SOLICITANTE';
-COMMENT ON COLUMN administrativo.gesfi_solicitud.id_responsable IS 'IDENTIFICACION DEL RESPONSABLE';
-COMMENT ON COLUMN administrativo.gesfi_solicitud.nombre_responsable IS 'NOMBRE DEL RESPONSABLE';
-COMMENT ON COLUMN administrativo.gesfi_solicitud.cargo_responsable IS 'CARGO  DEL RESPONSABLE';
-COMMENT ON COLUMN administrativo.gesfi_solicitud.oficina_responsable IS 'OFICINA  DEL RESPONSABLE';
-COMMENT ON COLUMN administrativo.gesfi_solicitud.celular_responsable IS 'CELULAR  DEL RESPONSABLE';
+COMMENT ON COLUMN administrativo.gesfi_solicitud.id_persona IS 'IDENTIFICACION DEL RESPONSABLE';
 COMMENT ON COLUMN administrativo.gesfi_solicitud.id_evento IS 'IDENTIFICADOR DEL EVENTO';
 COMMENT ON COLUMN administrativo.gesfi_solicitud.id_atributos_espacio_fisico IS 'ESPACIO FISICO QUE SE VA A SOLICITAR';
 COMMENT ON COLUMN administrativo.gesfi_solicitud.observacion IS 'OBSERVACION DE LA SOLICITUD';
@@ -467,6 +462,7 @@ COMMENT ON COLUMN administrativo.gesfi_solicitud.horario_espacio IS 'HORAS QUE S
 COMMENT ON COLUMN administrativo.gesfi_solicitud.estado IS 'ESTADO EN EL QUE SE ENCUENTRA LA SOLICITUD';
 COMMENT ON CONSTRAINT pk_gesfi_solicitud ON administrativo.gesfi_solicitud IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA administrativo.gesfi_solicitud';
 COMMENT ON CONSTRAINT fk_gesfi_solicitud_id_solicitante ON administrativo.gesfi_solicitud IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_solicitud  Y administrativo.gesfi_solicitante';
+COMMENT ON CONSTRAINT fk_gesfi_solicitud_id_persona ON administrativo.gesfi_solicitud IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_solicitud  Y general.gener_persona';
 COMMENT ON CONSTRAINT fk_gesfi_solicitud_id_evento ON administrativo.gesfi_solicitud IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_solicitud Y administrativo.gesfi_evento';
 COMMENT ON CONSTRAINT fk_gesfi_solicitud_id_atributos_espacio_fisico ON administrativo.gesfi_solicitud IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_solicitud Y general.espacio_fisico';
 

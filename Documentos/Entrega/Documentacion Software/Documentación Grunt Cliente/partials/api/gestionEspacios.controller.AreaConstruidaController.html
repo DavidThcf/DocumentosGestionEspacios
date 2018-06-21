@@ -1,0 +1,93 @@
+<h1><code ng:non-bindable="">AreaConstruidaController</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">gestionEspacios</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="gestionespacios-controller-page gestionespacios-controller-areaconstruidacontroller-page"><p>Este controlador permite administrar toda la información de las áreas construidas</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/ng.$scope">$scope</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/autenticacion">autenticacion</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/ng.$location">$location</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/SedeService">SedeService</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/AreaService">AreaService</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/ng.$uibModalInstance">$uibModalInstance</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/Alertify">Alertify</a></code>
+</li>
+</ul>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_archivararea">archivarArea()</h3>
+<div class="archivararea"><div class="archivararea-page"><p>permite archivar una área construida</p>
+</div></div>
+</li>
+<li><h3 id="methods_btnagregararea">btnAgregarArea()</h3>
+<div class="btnagregararea"><div class="btnagregararea-page"><p>Permite mostrar el modal de agregar un area construida</p>
+</div></div>
+</li>
+<li><h3 id="methods_btneditar">btnEditar(area)</h3>
+<div class="btneditar"><div class="btneditar-page"><p>Permite mostrar el modal de editar un area construida</p>
+</div><h5 id="methods_btneditar_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>area</td><td><a href="" class="label type-hint type-hint-json">json</a></td><td><div class="btneditar-page"><p>Objeeto con la información de la área cosntruida que se va a editar</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_capitalize">capitalize(cadena)</h3>
+<div class="capitalize"><div class="capitalize-page"><p>permite cambiar el formtao del texto a capitalize</p>
+</div><h5 id="methods_capitalize_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>cadena</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="capitalize-page"><p>Texto de la cadena que se va a aplicar el estilo capitalize</p>
+</div></td></tr></tbody></table><h5 id="methods_capitalize_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="capitalize-page"><p>cadena con estilo capitalize</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_changesede">changeSede()</h3>
+<div class="changesede"><div class="changesede-page"><p>muestra las areas construidas al cambiar de sede</p>
+</div></div>
+</li>
+<li><h3 id="methods_eliminararea">eliminarArea()</h3>
+<div class="eliminararea"><div class="eliminararea-page"><p>permite eliminar una área cosntruida</p>
+</div></div>
+</li>
+<li><h3 id="methods_init">init()</h3>
+<div class="init"><div class="init-page"><p>este metodo inicial</p>
+</div></div>
+</li>
+<li><h3 id="methods_opceliminararea">opcEliminarArea(area, $index)</h3>
+<div class="opceliminararea"><div class="opceliminararea-page"><p>muestra las opciones de eliminar área construida</p>
+</div><h5 id="methods_opceliminararea_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>area</td><td><a href="" class="label type-hint type-hint-json">json</a></td><td><div class="opceliminararea-page"><p>Objeto con la información de la área cosntruida que se va a eliminar</p>
+</div></td></tr><tr><td>$index</td><td><a href="" class="label type-hint type-hint-integer">integer</a></td><td><div class="opceliminararea-page"><p>posición del area construida que se va eliminar</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_sort">sort(keyname)</h3>
+<div class="sort"><div class="sort-page"><p>ordena los datos de la tabla area  construidas</p>
+</div><h5 id="methods_sort_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>keyname</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="sort-page"><p>Texto con el nombre de la columna que se va a ordenar</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_areasconstruidas">areasConstruidas</h3>
+<div class="areasconstruidas"><div class="areasconstruidas-page"><p>esta variable representa el listado de areas construidas</p>
+</div></div>
+</li>
+<li><h3 id="properties_sede">sede</h3>
+<div class="sede"><div class="sede-page"><p>esta variable representa la sede seleccionada</p>
+</div></div>
+</li>
+<li><h3 id="properties_sedes">sedes</h3>
+<div class="sedes"><div class="sedes-page"><p>esta variable representa el listado de sedes</p>
+</div></div>
+</li>
+<li><h3 id="properties_sortkey">sortKey</h3>
+<div class="sortkey"><div class="sortkey-page"><p>esta variable representa la columna que se va  ordenar</p>
+</div></div>
+</li>
+<li><h3 id="properties_titulo">titulo</h3>
+<div class="titulo"><div class="titulo-page"><p>esta variable representa el titulo y el subtitulo de la pagina actual</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

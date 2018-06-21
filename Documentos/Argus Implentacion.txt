@@ -8,3 +8,7 @@ cedula = 1085303922
 id persona tabla db = 10874
 id tabla segur_usuario = 28
 id segur_nivel sistema administrativo = 17
+
+
+crear datos en seguridad usuario
+seguridad nivel
