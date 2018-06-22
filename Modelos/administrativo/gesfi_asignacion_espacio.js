@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_atributos_espacio_fisico: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'gener_atributos_espacio_fisico',
         key: 'id_atributos_espacio_fisico'
@@ -19,10 +19,18 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_horario_espacio: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'gesfi_horario_espacio',
         key: 'id_horario_espacio'
+      }
+    },
+    id_persona: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'gener_persona',
+        key: 'id_persona'
       }
     },
     id_solicitante: {
@@ -32,26 +40,6 @@ module.exports = function(sequelize, DataTypes) {
         model: 'gesfi_solicitante',
         key: 'id_solicitante'
       }
-    },
-    cedula_responsable: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    nombre_responsable: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    cargo_responsable: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    oficina_responsable: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    celular_responsable: {
-      type: DataTypes.STRING,
-      allowNull: true
     },
     id_evento: {
       type: DataTypes.INTEGER,

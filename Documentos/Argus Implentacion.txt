@@ -4,10 +4,16 @@ crear .env
 ingresar http://90.1.1.31/phpldapadmin/
 
 
+DAVID ESTRADA
 cedula = 1085303922
 id persona tabla db = 10874
 id tabla segur_usuario = 28
 id segur_nivel sistema administrativo = 17
+
+SOLIER MEDINA
+cedula = 98346127
+psw = 12soliermedina
+id persona tabla db 1522
 
 
 crear datos en seguridad usuario

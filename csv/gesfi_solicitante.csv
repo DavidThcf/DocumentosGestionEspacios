@@ -1,18 +1,13 @@
-id_solicitante;cedula;nombre;ocupacion;celular
-1;1085369225;Astrid Carolina Correa Beltran;Estudiante;3126485963
-2;1085369548;Lucas Molina;Musico;3126486029
-3;1085369871;Maura Castanieda;Estudiante;3126486095
-4;1085370194;Mauricio Molina;Desarrollador;3126486161
-5;1085370517;Juancho Espriella;Estudiante;3126486227
-6;1085370840;Edwin Yamit Archila Reyes;Estudiante;3126486293
-7;1085371163;Kelly Johana Blanco Gonzalez;Auditor;3126486359
-8;1085371486;Gabriel Arcangel Cardenas Caceres ;Profesor;3126486425
-9;1085371809;Marianella Cardenas Gonzalez ;Estudiante;3126486491
-10;1085372132;Glenia Alejandra Cardona Botello ;Auditor;3126486557
-11;1085372455;Martin Jose Cardozo Mora ;Desarrollador;3126486623
-29;123;123;123;123
-32;1234;1234;123;123
-33;444;44;444;444
-34;555;555;555;555
-35;123;prueba;123;123
-36;123;123;123;123
+id_solicitante;cedula;nombre;ocupacion;celular;email
+1;1085369225;Astrid Carolina Correa Beltran;Estudiante;3126485963;default@hotmail.com
+2;1085369548;Lucas Molina;Musico;3126486029;default@hotmail.com
+3;1085369871;Maura Castanieda;Estudiante;3126486095;default@hotmail.com
+4;1085370194;Mauricio Molina;Desarrollador;3126486161;default@hotmail.com
+5;1085370517;Juancho Espriella;Estudiante;3126486227;default@hotmail.com
+6;1085370840;Edwin Yamit Archila Reyes;Estudiante;3126486293;default@hotmail.com
+7;1085371163;Kelly Johana Blanco Gonzalez;Auditor;3126486359;default@hotmail.com
+8;1085371486;Gabriel Arcangel Cardenas Caceres ;Profesor;3126486425;default@hotmail.com
+9;1085371809;Marianella Cardenas Gonzalez ;Estudiante;3126486491;default@hotmail.com
+10;1085372132;Glenia Alejandra Cardona Botello ;Auditor;3126486557;default@hotmail.com
+11;1085372455;Martin Jose Cardozo Mora ;Desarrollador;3126486623;default@hotmail.com
+55;1085303922;David Estrada;Estudiante;312548963;davest@hotmail.com

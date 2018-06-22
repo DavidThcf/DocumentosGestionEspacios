@@ -20,25 +20,13 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id_solicitante'
       }
     },
-    id_responsable: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    nombre_responsable: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    cargo_responsable: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    oficina_responsable: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    celular_responsable: {
-      type: DataTypes.STRING,
-      allowNull: true
+    id_persona: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'gener_persona',
+        key: 'id_persona'
+      }
     },
     id_evento: {
       type: DataTypes.INTEGER,

@@ -362,8 +362,9 @@ CREATE TABLE administrativo.gesfi_solicitante
   nombre character varying(100), -- NOMBRE DEL SOLICITANTE
   ocupacion character varying(100), -- OCUPACION DEL SOLICITANTE
   celular character varying(100), -- CELULAR DEL SOLICITANTE
-  CONSTRAINT pk_gesfi_solicitante PRIMARY KEY (id_solicitante) -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA administrativo.gesfi_solicitante
-  
+  email character varying(30) DEFAULT 'default@hotmail.com'::character varying, -- EMAIL DEL SOLICITANTE
+  CONSTRAINT pk_gesfi_solicitante PRIMARY KEY (id_solicitante) -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA administrativo.gesfi_solicitante 
+  CONSTRAINT uk_gesfi_solicitante_cedula UNIQUE (cedula) 
 )
 WITH (
   OIDS=FALSE
@@ -377,6 +378,7 @@ COMMENT ON COLUMN administrativo.gesfi_solicitante.cedula IS 'CEDULA DEL SOLICIT
 COMMENT ON COLUMN administrativo.gesfi_solicitante.nombre IS 'NOMBRE DEL SOLICITANTE';
 COMMENT ON COLUMN administrativo.gesfi_solicitante.ocupacion IS 'OCUPACION DEL SOLICITANTE';
 COMMENT ON COLUMN administrativo.gesfi_solicitante.celular IS 'CELULAR DEL SOLICITANTE';
+COMMENT ON COLUMN administrativo.gesfi_solicitante.email IS 'EMAIL DEL SOLICITANTE';
 COMMENT ON CONSTRAINT pk_gesfi_solicitante ON administrativo.gesfi_solicitante IS 'LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA administrativo.gesfi_solicitante';
 
 -- Table: administrativo.gesfi_evento
@@ -495,14 +497,10 @@ DROP TABLE IF EXISTS  administrativo.gesfi_asignacion_espacio CASCADE;
 CREATE TABLE administrativo.gesfi_asignacion_espacio
 (
   id_asign_espacio_fisico serial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA ASIGNACION ESPACIO
-  id_atributos_espacio_fisico integer, -- ESPACIO FISICO QUE SE VA ASIGNAR
-  id_horario_espacio integer, -- IDENTIFICACION DEL HORARIO QUE SE VA ASIGNAR  
-  id_solicitante integer NOT NULL, -- IDENTIFICACION DEL SOLICITANTE
-  cedula_responsable character varying, -- IDENTIFICACION DEL RESPONSABLE
-  nombre_responsable character varying(100), -- NOMBRE DEL RESPONSABLE
-  cargo_responsable character varying(100), -- CARGO  DEL RESPONSABLE
-  oficina_responsable character varying(100), -- OFICINA  DEL RESPONSABLE
-  celular_responsable character varying(100), -- CELULAR  DEL RESPONSABLE
+  id_atributos_espacio_fisico integer NOT NULL,-- ESPACIO FISICO QUE SE VA ASIGNAR
+  id_horario_espacio integer NOT NULL,-- IDENTIFICACION DEL HORARIO QUE SE VA ASIGNAR
+  id_persona integer NOT NULL, --IDENTIFICADOR DE LA PERSONA  
+  id_solicitante integer NOT NULL, -- IDENTIFICACION DEL SOLICITANTE  
   id_evento integer NOT NULL, -- IDENTIFICADOR QUE REPRESENTA EL EVENTO AL CUAL SE ASIGNA EL ESPACIO
   CONSTRAINT pk_gesfi_asignacion_espacio PRIMARY KEY (id_asign_espacio_fisico), -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA administrativo.gesfi_asignacion_espacio
   CONSTRAINT fk_gesfi_asignacion_espacio_id_atributos_espacio_fisico FOREIGN KEY (id_atributos_espacio_fisico) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_asignacion_espacio  Y general.gener_espacio_fisico
@@ -510,6 +508,9 @@ CREATE TABLE administrativo.gesfi_asignacion_espacio
       ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT fk_gesfi_asignacion_espacio_id_horario_espacio FOREIGN KEY (id_horario_espacio) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_asignacion_espacio  Y administrativo.gesfi_horario_espacio
       REFERENCES administrativo.gesfi_horario_espacio (id_horario_espacio) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fk_gesfi_asignacion_espacio_id_persona FOREIGN KEY (id_persona) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_asignacion_espacio  Y general.gener_persona
+      REFERENCES general.gener_persona(id_persona) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT fk_gesfi_asignacion_espacio_id_solicitante FOREIGN KEY (id_solicitante) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_asignacion_espacio  Y administrativo.gesfi_solicitante
       REFERENCES administrativo.gesfi_solicitante(id_solicitante) MATCH SIMPLE
@@ -530,14 +531,11 @@ COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.id_asign_espacio_fisic
 COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.id_atributos_espacio_fisico IS 'ESPACIO FISICO QUE SE VA ASIGNAR';
 COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.id_horario_espacio IS 'ESPACIO FISICO QUE SE VA A SOLICITAR';
 COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.id_solicitante IS 'IDENTIFICACION DEL SOLICITANTE';
-COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.cedula_responsable IS 'IDENTIFICACION DEL RESPONSABLE';
-COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.nombre_responsable IS 'NOMBRE DEL RESPONSABLE';
-COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.cargo_responsable IS 'CARGO  DEL RESPONSABLE';
-COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.oficina_responsable IS 'OFICINA  DEL RESPONSABLE';
-COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.celular_responsable IS 'CELULAR  DEL RESPONSABLE';
+COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.id_persona IS 'IDENTIFICACION DE LA PERSONA RESPONSABLE';
 COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.id_evento IS 'IDENTIFICADOR QUE REPRESENTA EL EVENTO AL CUAL SE ASIGNA EL ESPACIO';
 COMMENT ON CONSTRAINT pk_gesfi_asignacion_espacio ON administrativo.gesfi_asignacion_espacio IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA administrativo.gesfi_asignacion_espacio';
 COMMENT ON CONSTRAINT fk_gesfi_asignacion_espacio_id_atributos_espacio_fisico ON administrativo.gesfi_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_asignacion_espacio Y general.espacio_fisico';
 COMMENT ON CONSTRAINT fk_gesfi_asignacion_espacio_id_horario_espacio ON administrativo.gesfi_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_asignacion_espacio Y administrativo.gesfi_horario_espacio';
+COMMENT ON CONSTRAINT fk_gesfi_asignacion_espacio_id_persona ON administrativo.gesfi_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_asignacion_espacio Y general.gener_persona';
 COMMENT ON CONSTRAINT fk_gesfi_asignacion_espacio_id_solicitante ON administrativo.gesfi_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_asignacion_espacio Y administrativo.gesfi_solicitante';
 COMMENT ON CONSTRAINT fk_gesfi_asignacion_espacio_id_evento ON administrativo.gesfi_asignacion_espacio IS 'LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_asignacion_espacio Y administrativo.gesfi_evento';

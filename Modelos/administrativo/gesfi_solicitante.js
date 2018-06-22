@@ -10,7 +10,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     cedula: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
+      unique: true
     },
     nombre: {
       type: DataTypes.STRING,
@@ -23,6 +24,11 @@ module.exports = function(sequelize, DataTypes) {
     celular: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: 'default@hotmail.com'
     }
   }, {
     tableName: 'gesfi_solicitante'
