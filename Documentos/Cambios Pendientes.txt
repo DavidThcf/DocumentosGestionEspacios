@@ -1,4 +1,4 @@
-solucionar problema con sdes al guardar, OK
+solucionar problema con sedes al guardar, OK
 cambiar mayusculas boton asignar aula, OK
 cambiar orden botones asiganr aaula, OK
 cambiar los botones lineales, OK
@@ -7,10 +7,10 @@ capitilzacion - ortografia, OK
 integrar con seguridad, OK
 buscar simbolo mt2 OK
 Solucionar index delete, OK
-Solucionar persona encargada,
+Solucionar persona encargada, OK
 iconos por icono facultad,
-amarillo - seleccionado
-verde - libre 
-rojo - ocupado
+amarillo - seleccionado,
+verde - libre,
+rojo - ocupado,
 integrar con programacion academica,
 
