@@ -1,4 +1,4 @@
-﻿SELECT tab1.id_sede, tab1.nombre, tab1.total, tab1.total_academica, tab1.total_no_acad  FROM (SELECT t1.id_sede , t1.nombre, SUM(coalesce(t2.mts2,0)) as total, SUM(coalesce(t2.mts2_acad,0)) as total_academica, SUM(coalesce(t2.mts2_no_acad,0)) as total_no_acad
+﻿SELECT tab1.id_sede, tab1.nombre, tab1.total, tab1.total_academica, tab1.total_no_acad, tab2.esp_depor  FROM (SELECT t1.id_sede , t1.nombre, SUM(coalesce(t2.mts2,0)) as total, SUM(coalesce(t2.mts2_acad,0)) as total_academica, SUM(coalesce(t2.mts2_no_acad,0)) as total_no_acad
 FROM general.gener_sede as t1
 LEFT JOIN (select id_sede,mts2, mts2_acad,mts2_no_acad from general.gener_area_construida where estado='A') as t2
 ON t1.id_sede = t2.id_sede
@@ -7,7 +7,7 @@ ORDER BY t1.nombre) as tab1
 
 JOIN
 
-(SELECT t1.id_sede, t1.nombre , SUM(coalesce(t5.area,0)) as total
+(SELECT t1.id_sede, t1.nombre , SUM(coalesce(t5.area,0)) as esp_depor
 FROM general.gener_sede as t1
 LEFT JOIN (
  SELECT id_sede,area from general.gener_area_construida as t2

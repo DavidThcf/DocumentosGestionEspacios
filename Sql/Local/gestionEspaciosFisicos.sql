@@ -1,4 +1,24 @@
-﻿-- Table: general.gener_sede
+﻿-- Table: administrativo.gesfi_contrato_inmueble
+DROP TABLE IF EXISTS  administrativo.gesfi_contrato_inmueble CASCADE;
+
+CREATE TABLE administrativo.gesfi_contrato_inmueble
+(
+  id_contrato_inmueble smallserial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA CONTRATO INMUEBLE
+  nombre character varying(100) NOT NULL,-- NOMBRE DEL CONTRATO INMUEBLE
+  CONSTRAINT gesfi_contrato_inmueble_pkey PRIMARY KEY (id_contrato_inmueble) -- LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA administrativo.gesfi_contrato_inmueble
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE administrativo.gesfi_contrato_inmueble
+  OWNER TO postgres;
+COMMENT ON TABLE administrativo.gesfi_contrato_inmueble
+  IS 'REPRESENTA EL TIPO DE CONTRATO ASOCIADO A LA SEDE';
+COMMENT ON COLUMN administrativo.gesfi_contrato_inmueble.id_contrato_inmueble IS 'IDENTIFICADOR UNICO DE LA TABLA CONTRATO INMUEBLE';
+COMMENT ON COLUMN administrativo.gesfi_contrato_inmueble.nombre IS 'NOMBRE DEL CONTRATO INMUEBLE ';
+COMMENT ON CONSTRAINT gesfi_contrato_inmueble_pkey ON administrativo.gesfi_contrato_inmueble IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA administrativo.gesfi_contrato_inmueble';
+
+-- Table: general.gener_sede
 
 DROP TABLE IF EXISTS  general.gener_sede CASCADE;
 CREATE TABLE general.gener_sede
@@ -6,8 +26,13 @@ CREATE TABLE general.gener_sede
   id_sede serial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA SEDE EN LA BASE DE DATOS
   nombre character varying(50) NOT NULL, -- NOMBRE DE LA SEDE
   cod_localizacion character varying(20) NOT NULL, -- CODIGO DE LA CIUDAD DONDE SE ENCUENTRA LA SEDE
+  area numeric(9,3) DEFAULT 0 NOT NULL, -- ÁREA DE LA SEDE
+  id_contrato_inmueble INTEGER NOT NULL, -- IDENTIFICADOR DEL CONTRATO INMUEBLE
   estado character(1) DEFAULT 'A'::bpchar NOT NULL,  -- ESTADO EN EL QUE SE ENCUENTRA LA SEDE A-CTIVO O I-NACTIVO
   CONSTRAINT pk_gener_sede PRIMARY KEY (id_sede),  -- LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA general.gener_sede
+  CONSTRAINT fk_ggener_sede_id_contrato_inmueble FOREIGN KEY (id_contrato_inmueble) --LLAVE FORANEA - IDENTIFICADOR  ASOCIA LAS TABLAS general.gener_sede Y administrativo.gesfi_contrato_inmueble
+      REFERENCES administrativo.gesfi_contrato_inmueble (id_contrato_inmueble) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT chk_gener_sede_estado CHECK (estado = 'A'::bpchar OR estado = 'I'::bpchar)
 )
 WITH (
@@ -20,6 +45,7 @@ COMMENT ON TABLE general.gener_sede
 COMMENT ON COLUMN general.gener_sede.id_sede IS 'IDENTIFICADOR UNICO DE LA SEDE EN LA BASE DE DATOS';
 COMMENT ON COLUMN general.gener_sede.nombre IS 'NOMBRE DE LA SEDE';
 COMMENT ON COLUMN general.gener_sede.cod_localizacion IS 'CODIGO DE LA CIUDAD EN LA CUAL SE ENCUENTRA LA SEDE';
+COMMENT ON COLUMN general.gener_sede.area IS 'AREA DE LA SEDE';
 COMMENT ON COLUMN general.gener_sede.estado IS 'ESTADO EN EL QUE SE ENCUENTRA LA SEDE A-CTIVO O I-NACTIVO';
 COMMENT ON CONSTRAINT pk_gener_sede ON general.gener_sede IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA general.gener_sede ';
 
@@ -220,9 +246,10 @@ COMMENT ON CONSTRAINT fk_gener_unidad_atributos_id_unidad ON general.gener_unida
 
 -- Schema: administrativo
 
-DROP SCHEMA IF EXISTS administrativo CASCADE;
-CREATE SCHEMA administrativo
-  AUTHORIZATION postgres;
+--DROP SCHEMA IF EXISTS administrativo CASCADE;
+--CREATE SCHEMA administrativo
+--  AUTHORIZATION postgres;
+
 
 -- Table: administrativo.gesfi_unidad_atributos
 
@@ -363,7 +390,7 @@ CREATE TABLE administrativo.gesfi_solicitante
   ocupacion character varying(100), -- OCUPACION DEL SOLICITANTE
   celular character varying(100), -- CELULAR DEL SOLICITANTE
   email character varying(30) DEFAULT 'default@hotmail.com'::character varying, -- EMAIL DEL SOLICITANTE
-  CONSTRAINT pk_gesfi_solicitante PRIMARY KEY (id_solicitante) -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA administrativo.gesfi_solicitante 
+  CONSTRAINT pk_gesfi_solicitante PRIMARY KEY (id_solicitante), -- LLAVE PRIMARIA -  IDENTIFICADOR UNICO DE LA TABLA administrativo.gesfi_solicitante 
   CONSTRAINT uk_gesfi_solicitante_cedula UNIQUE (cedula) 
 )
 WITH (
@@ -499,6 +526,7 @@ CREATE TABLE administrativo.gesfi_asignacion_espacio
   id_asign_espacio_fisico serial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA ASIGNACION ESPACIO
   id_atributos_espacio_fisico integer NOT NULL,-- ESPACIO FISICO QUE SE VA ASIGNAR
   id_horario_espacio integer NOT NULL,-- IDENTIFICACION DEL HORARIO QUE SE VA ASIGNAR
+  fecha_evento date NOT NULL, -- FECHA DEL EVENTO
   id_persona integer NOT NULL, --IDENTIFICADOR DE LA PERSONA  
   id_solicitante integer NOT NULL, -- IDENTIFICACION DEL SOLICITANTE  
   id_evento integer NOT NULL, -- IDENTIFICADOR QUE REPRESENTA EL EVENTO AL CUAL SE ASIGNA EL ESPACIO
@@ -518,7 +546,7 @@ CREATE TABLE administrativo.gesfi_asignacion_espacio
   CONSTRAINT fk_gesfi_asignacion_espacio_id_evento FOREIGN KEY (id_evento) -- LLAVE FORANEA -  IDENTIFICADOR ASOCIA LAS TABLAS administrativo.gesfi_asignacion_espacio  Y administrativo.gesfi_evento
       REFERENCES administrativo.gesfi_evento(id_evento) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT uk_fecha_evento_hora UNIQUE ( id_atributos_espacio_fisico, id_horario_espacio, id_evento)
+  CONSTRAINT uk_fecha_evento_hora UNIQUE ( id_atributos_espacio_fisico, id_horario_espacio, fecha_evento)
 )
 WITH (
   OIDS=FALSE
@@ -530,6 +558,7 @@ COMMENT ON TABLE administrativo.gesfi_asignacion_espacio
 COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.id_asign_espacio_fisico IS 'IDENTIFICADOR UNICO DE LA TABLA SOLICITUD';
 COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.id_atributos_espacio_fisico IS 'ESPACIO FISICO QUE SE VA ASIGNAR';
 COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.id_horario_espacio IS 'ESPACIO FISICO QUE SE VA A SOLICITAR';
+COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.fecha_evento IS 'FECHA DEL EVENTO';
 COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.id_solicitante IS 'IDENTIFICACION DEL SOLICITANTE';
 COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.id_persona IS 'IDENTIFICACION DE LA PERSONA RESPONSABLE';
 COMMENT ON COLUMN administrativo.gesfi_asignacion_espacio.id_evento IS 'IDENTIFICADOR QUE REPRESENTA EL EVENTO AL CUAL SE ASIGNA EL ESPACIO';

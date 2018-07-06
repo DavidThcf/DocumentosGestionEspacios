@@ -1,4 +1,8 @@
-﻿truncate general.gener_sede cascade;
+﻿truncate administrativo.gesfi_contrato_inmueble cascade;
+COPY administrativo.gesfi_contrato_inmueble FROM 'D:\datacsv\csv\gesfi_contrato_inmueble.csv' DELIMITER ';' CSV HEADER;
+select setval('administrativo.gesfi_contrato_inmueble_id_contrato_inmueble_seq', (select max(id_contrato_inmueble) from administrativo.gesfi_contrato_inmueble));
+
+truncate general.gener_sede cascade;
 COPY general.gener_sede FROM 'D:\datacsv\csv\gener_sede.csv' DELIMITER ';' CSV HEADER;
 select setval('general.gener_sede_id_sede_seq', (select max(id_sede) from general.gener_sede));
 

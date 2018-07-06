@@ -1,4 +1,6 @@
-﻿COPY general.gener_sede TO'D:\datacsv\csv\gener_sede.csv' DELIMITER ';' CSV HEADER;
+﻿COPY administrativo.gesfi_contrato_inmueble TO'D:\datacsv\csv\gesfi_contrato_inmueble.csv' DELIMITER ';' CSV HEADER;
+
+COPY general.gener_sede TO'D:\datacsv\csv\gener_sede.csv' DELIMITER ';' CSV HEADER;
 
 COPY general.gener_area_construida TO'D:\datacsv\csv\gener_area_construida.csv' DELIMITER ';' CSV HEADER;
 

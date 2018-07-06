@@ -10,5 +10,8 @@ id_evento;fecha_evento;fecha_solicitud;nombre;objetivo;riesgos;acciones;observac
 10;2018-07-31;2018-07-10 11:23:35.385-05;Capacitacion de normas Retie;Prevencion de accidentes en electricidad;Ninguno;Conferencia;El Horario no se encuentra disponible
 11;2018-07-31;2018-07-10 11:42:47.452-05;Cocurso de LOL;LLevar a cabo la competencia lol;Ninguno;Comnpetencia;
 1;2018-06-26;2018-07-03 11:04:13.808-05;Ingenierrring;Ingenierrring;Ninguno;Ingenierrring;
-73;2018-07-01;2018-06-22 16:55:42.406-05;Prueba de Datos;Probar si la información de la base de datos es correcta;ninguno;ninguno;""
 72;2018-06-30;2018-06-22 16:47:16.695-05;Evento Prueba;Probar la creación de un solicitante en la base de datos;ninguno;ninguno;""
+74;2018-07-06;2018-07-06 10:01:30.138-05;prueba;prueba;prueba;prueba;""
+75;2018-07-31;2018-07-06 10:03:02.529-05;prueba;prueba;prueba;prueba;""
+76;2018-07-31;2018-07-06 10:03:40.122-05;Prueba1;Prueba1;Prueba1;Prueba1;""
+73;2018-07-31;2018-06-22 16:55:42.406-05;Prueba de Datos;Probar si la información de la base de datos es correcta;ninguno;ninguno;""

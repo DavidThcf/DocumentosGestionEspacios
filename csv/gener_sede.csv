@@ -1,8 +1,8 @@
-id_sede;nombre;cod_localizacion;estado
-1;Tuquerres;04652838;A
-2;Ipiales;04652356;A
-3;Tumaco;04652835;A
-4;Samaniego;04652678;A
-5;Centro;04652001;A
-7;Torobajo;04652001;A
-6;Vipri;04652001;A
+id_sede;nombre;cod_localizacion;area;id_contrato_inmueble;estado
+1;Tuquerres;04652838;100.000;3;A
+2;Ipiales;04652356;100.000;1;A
+3;Tumaco;04652835;70.000;3;A
+4;Samaniego;04652678;70.000;3;A
+5;Centro;04652001;400.000;1;A
+6;Vipri;04652001;400.000;1;A
+7;Torobajo;04652001;900.000;1;A

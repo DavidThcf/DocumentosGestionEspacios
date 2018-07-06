@@ -25,6 +25,11 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id_horario_espacio'
       }
     },
+    fecha_evento: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+      primaryKey: true
+    },
     id_persona: {
       type: DataTypes.INTEGER,
       allowNull: false,
