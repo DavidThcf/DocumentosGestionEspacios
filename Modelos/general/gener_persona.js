@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     sexo_biologico: {
-      type: DataTypes.STRING,
+      type: DataTypes.CHAR,
       allowNull: true
     },
     fecha_nacimiento: {
@@ -40,26 +40,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: true,
       defaultValue: sequelize.fn('now')
-    },
-    direccion_residencia: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: 'Dir por default'
-    },
-    celular: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: '00000000'
-    },
-    telefono: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: '000000'
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: 'default@hotmail.com'
     },
     foto_persona: {
       type: DataTypes.STRING,
@@ -77,32 +57,32 @@ module.exports = function(sequelize, DataTypes) {
     },
     cod_ciudad_nacimiento: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'gener_localizacion',
+        key: 'cod_localizacion'
+      }
     },
     cod_ciudad_residencia: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'gener_localizacion',
+        key: 'cod_localizacion'
+      }
     },
     cod_ciudad_expedicion: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'gener_localizacion',
+        key: 'cod_localizacion'
+      }
     },
     tipo_persona: {
       type: DataTypes.CHAR,
       allowNull: true,
       defaultValue: 'N'
-    },
-    razon_social: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    digito_verificacion: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    provisional: {
-      type: DataTypes.CHAR,
-      allowNull: true
     }
   }, {
     tableName: 'gener_persona'

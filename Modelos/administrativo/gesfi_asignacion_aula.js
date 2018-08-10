@@ -14,7 +14,8 @@ module.exports = function(sequelize, DataTypes) {
       references: {
         model: 'gener_atributos_espacio_fisico',
         key: 'id_atributos_espacio_fisico'
-      }
+      },
+      unique: true
     },
     id_dia: {
       type: DataTypes.INTEGER,
@@ -36,21 +37,18 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.CHAR,
       allowNull: true
     },
-    año: {
+    anio: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
+      primaryKey: true
     },
-    facultad: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    color: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    programa: {
-      type: DataTypes.STRING,
-      allowNull: true
+    id_detalle_unidad: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'gener_detalle_unidad',
+        key: 'id_detalle_unidad'
+      }
     },
     materia: {
       type: DataTypes.STRING,

@@ -1,0 +1,10 @@
+﻿select setval('general.gener_sede_id_sede_seq', (select max(id_sede) from general.gener_sede));
+select setval('general.gener_sede_contacto_id_sede_contacto_seq', (select max(id_sede_contacto) from general.gener_sede_contacto));
+select setval('general.gener_area_construida_id_area_construida_seq', (select max(id_area_construida) from general.gener_area_construida));
+select setval('general.gener_espacio_fisico_id_espacio_fisico_seq', (select max(id_espacio_fisico) from general.gener_espacio_fisico));
+select setval('general.gener_tipo_espacio_id_tipo_espacio_seq', (select max(id_tipo_espacio) from general.gener_tipo_espacio));
+select setval('general.gener_atributos_espacio_fisico_id_atributos_espacio_fisico_seq', (select max(id_atributos_espacio_fisico) from general.gener_atributos_espacio_fisico));
+select setval('administrativo.gesfi_unidad_atributos_id_unidad_atr_seq', (select max(id_unidad_atr) from administrativo.gesfi_unidad_atributos ));
+select setval('administrativo.gesfi_dia_id_dia_seq', (select max(id_dia) from administrativo.gesfi_dia ));
+select setval('administrativo.gesfi_horario_aula_id_horario_aula_seq', (select max(id_horario_aula) from administrativo.gesfi_horario_aula ));
+select setval('administrativo.gesfi_asignacion_aula_id_asign_aula_seq', (select max(id_asign_aula) from administrativo.gesfi_asignacion_aula ));

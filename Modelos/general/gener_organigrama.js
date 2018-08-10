@@ -5,24 +5,23 @@ module.exports = function(sequelize, DataTypes) {
     id_organigrama: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      defaultValue: 'nextval(general.gener_organigrama_id_organigrama_seq::regclass)',
+      primaryKey: true
     },
-    id_unidad: {
+    id_detalle_unidad: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: {
-        model: 'gener_unidad',
-        key: 'id_unidad'
-      }
+      primaryKey: true
     },
     codigo: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      primaryKey: true
     },
     id_padre: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      primaryKey: true
     },
     nivel_jerarquia: {
       type: DataTypes.INTEGER,
@@ -31,10 +30,11 @@ module.exports = function(sequelize, DataTypes) {
     id_tipo_organigrama: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: {
-        model: 'gener_tipo_organigrama',
-        key: 'id_tipo_organigrama'
-      }
+      primaryKey: true
+    },
+    tipo: {
+      type: DataTypes.CHAR,
+      allowNull: true
     }
   }, {
     tableName: 'gener_organigrama'

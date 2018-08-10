@@ -5,40 +5,22 @@ module.exports = function(sequelize, DataTypes) {
     id_unidad: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      defaultValue: 'nextval(general.gener_unidad1_id_unidad_seq::regclass)',
+      primaryKey: true
     },
     nombre_unidad: {
       type: DataTypes.STRING,
-      allowNull: false
-    },
-    codigo_planeacion: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    codigo_localizacion: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      references: {
-        model: 'gener_localizacion',
-        key: 'cod_localizacion'
-      }
-    },
-    estado_unidad: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    cod_homologa_nomina: {
-      type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false,
+      primaryKey: true
     },
     id_tipo_unidad: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: {
-        model: 'gener_tipo_unidad',
-        key: 'id_tipo_unidad'
-      }
+      primaryKey: true
+    },
+    codigo_planeacion: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {
     tableName: 'gener_unidad'

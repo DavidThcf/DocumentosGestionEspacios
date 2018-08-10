@@ -21,6 +21,16 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: '0'
     },
+    area_piso: {
+      type: DataTypes.DOUBLE,
+      allowNull: false,
+      defaultValue: '0'
+    },
+    area_bloque: {
+      type: DataTypes.DOUBLE,
+      allowNull: false,
+      defaultValue: '0'
+    },
     id_contrato_inmueble: {
       type: DataTypes.INTEGER,
       allowNull: false,

@@ -25,12 +25,12 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id_area_construida'
       }
     },
-    id_unidad: {
+    id_detalle_unidad: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'gener_unidad',
-        key: 'id_unidad'
+        model: 'gener_detalle_unidad',
+        key: 'id_detalle_unidad'
       }
     },
     id_tipo_espacio: {
@@ -57,6 +57,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.CHAR,
       allowNull: true,
       defaultValue: 'A'
+    },
+    descripcion: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {
     tableName: 'gener_atributos_espacio_fisico'

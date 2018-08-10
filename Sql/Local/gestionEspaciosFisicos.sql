@@ -26,7 +26,9 @@ CREATE TABLE general.gener_sede
   id_sede serial NOT NULL, -- IDENTIFICADOR UNICO DE LA TABLA SEDE EN LA BASE DE DATOS
   nombre character varying(50) NOT NULL, -- NOMBRE DE LA SEDE
   cod_localizacion character varying(20) NOT NULL, -- CODIGO DE LA CIUDAD DONDE SE ENCUENTRA LA SEDE
-  area numeric(9,3) DEFAULT 0 NOT NULL, -- ÁREA DE LA SEDE
+  area numeric(9,3) DEFAULT 0 NOT NULL, -- ÁREA TOTAL DE LA SEDE
+  area_piso numeric(9,3) DEFAULT 0 NOT NULL, -- ÁREA PRIMER PISO DE LA SEDE
+  area_bloque numeric(9,3) DEFAULT 0 NOT NULL, -- ÁREA BLOQUE DE LA SEDE
   id_contrato_inmueble INTEGER NOT NULL, -- IDENTIFICADOR DEL CONTRATO INMUEBLE
   estado character(1) DEFAULT 'A'::bpchar NOT NULL,  -- ESTADO EN EL QUE SE ENCUENTRA LA SEDE A-CTIVO O I-NACTIVO
   CONSTRAINT pk_gener_sede PRIMARY KEY (id_sede),  -- LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA general.gener_sede
@@ -45,7 +47,9 @@ COMMENT ON TABLE general.gener_sede
 COMMENT ON COLUMN general.gener_sede.id_sede IS 'IDENTIFICADOR UNICO DE LA SEDE EN LA BASE DE DATOS';
 COMMENT ON COLUMN general.gener_sede.nombre IS 'NOMBRE DE LA SEDE';
 COMMENT ON COLUMN general.gener_sede.cod_localizacion IS 'CODIGO DE LA CIUDAD EN LA CUAL SE ENCUENTRA LA SEDE';
-COMMENT ON COLUMN general.gener_sede.area IS 'AREA DE LA SEDE';
+COMMENT ON COLUMN general.gener_sede.area IS 'AREA TOTAL';
+COMMENT ON COLUMN general.gener_sede.area_piso IS 'AREA DEL PRIMER PISO';
+COMMENT ON COLUMN general.gener_sede.area_bloque IS 'AREA DEL BLOQUE';
 COMMENT ON COLUMN general.gener_sede.estado IS 'ESTADO EN EL QUE SE ENCUENTRA LA SEDE A-CTIVO O I-NACTIVO';
 COMMENT ON CONSTRAINT pk_gener_sede ON general.gener_sede IS 'LLAVE PRIMARIA – IDENTIFICADOR UNICO DE LA TABLA general.gener_sede ';
 

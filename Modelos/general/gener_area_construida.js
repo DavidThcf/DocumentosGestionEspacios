@@ -41,6 +41,16 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.CHAR,
       allowNull: false,
       defaultValue: 'A'
+    },
+    mts2_acad_bloq: {
+      type: DataTypes.DOUBLE,
+      allowNull: false,
+      defaultValue: '0'
+    },
+    mts2_no_acad_bloq: {
+      type: DataTypes.DOUBLE,
+      allowNull: false,
+      defaultValue: '0'
     }
   }, {
     tableName: 'gener_area_construida'

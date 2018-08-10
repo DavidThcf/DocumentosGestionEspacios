@@ -8,12 +8,12 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    id_unidad: {
+    id_detalle_unidad: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'gener_unidad',
-        key: 'id_unidad'
+        model: 'gener_detalle_unidad',
+        key: 'id_detalle_unidad'
       }
     },
     valor: {

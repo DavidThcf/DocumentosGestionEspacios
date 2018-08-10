@@ -5,15 +5,18 @@ module.exports = function(sequelize, DataTypes) {
     id_tipo_unidad: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     descripcion: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     abr: {
       type: DataTypes.CHAR,
-      allowNull: false
+      allowNull: false,
+      unique: true
     }
   }, {
     tableName: 'gener_tipo_unidad'

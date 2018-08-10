@@ -14,9 +14,8 @@ module.exports = function(sequelize, DataTypes) {
       unique: true
     },
     abr: {
-      type: DataTypes.CHAR,
-      allowNull: false,
-      unique: true
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {
     tableName: 'gener_tipo_contacto'

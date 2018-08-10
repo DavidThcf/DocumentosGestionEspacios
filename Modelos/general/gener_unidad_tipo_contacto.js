@@ -12,8 +12,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'gener_unidad',
-        key: 'id_unidad'
+        model: 'gener_detalle_unidad',
+        key: 'id_detalle_unidad'
       },
       unique: true
     },

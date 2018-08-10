@@ -1,0 +1,4 @@
+se queda el icono cargando pegado
+verificar el numero con , o .
+no aparece las aulas asignadas
+
