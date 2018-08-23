@@ -5,16 +5,13 @@ module.exports = function(sequelize, DataTypes) {
     id_detalle_unidad: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      defaultValue: 'nextval(general.gener_unidad_id_unidad_seq::regclass)',
+      unique: true
     },
     codigo_localizacion: {
       type: DataTypes.STRING,
       allowNull: true,
-      references: {
-        model: 'gener_localizacion',
-        key: 'cod_localizacion'
-      }
+      primaryKey: true
     },
     estado_unidad: {
       type: DataTypes.STRING,
@@ -27,15 +24,12 @@ module.exports = function(sequelize, DataTypes) {
     id_unidad: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: {
-        model: 'gener_unidad',
-        key: 'id_unidad'
-      }
+      primaryKey: true
     },
     codigo: {
       type: DataTypes.STRING,
       allowNull: true,
-      unique: true
+      primaryKey: true
     }
   }, {
     tableName: 'gener_detalle_unidad'

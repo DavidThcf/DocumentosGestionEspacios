@@ -8,37 +8,9 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    id_mantenimiento_bien: {
-      type: DataTypes.BIGINT,
-      allowNull: false,
-      references: {
-        model: 'almac_mantenimiento_bien',
-        key: 'id_mantenimiento_bien'
-      }
-    },
-    id_tipo_mantenimiento: {
-      type: DataTypes.BIGINT,
-      allowNull: true,
-      references: {
-        model: 'almac_tipo_mantenimiento',
-        key: 'id_tipo_mantenimiento'
-      }
-    },
-    id_lugar_mantenimiento: {
-      type: DataTypes.BIGINT,
-      allowNull: true,
-      references: {
-        model: 'almac_lugar_mantenimiento',
-        key: 'id_lugar_mantenimiento'
-      }
-    },
-    fecha_recepcion: {
+    fecha_revision: {
       type: DataTypes.DATE,
       allowNull: false
-    },
-    fecha_entrega: {
-      type: DataTypes.DATE,
-      allowNull: true
     },
     valor: {
       type: DataTypes.DOUBLE,
@@ -56,9 +28,13 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    diagnostico: {
-      type: DataTypes.TEXT,
-      allowNull: true
+    id_mantenimiento_bien: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+      references: {
+        model: 'almac_mantenimiento_bien',
+        key: 'id_mantenimiento_bien'
+      }
     }
   }, {
     tableName: 'almac_mantenimiento_detalle'

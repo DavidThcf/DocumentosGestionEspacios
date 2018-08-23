@@ -27,6 +27,14 @@ module.exports = function(sequelize, DataTypes) {
         model: 'almac_estado_solicitud',
         key: 'id_estado_solicitud'
       }
+    },
+    id_unidad_mantenimiento: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+      references: {
+        model: 'gener_unidad',
+        key: 'id_unidad'
+      }
     }
   }, {
     tableName: 'almac_mantenimiento'

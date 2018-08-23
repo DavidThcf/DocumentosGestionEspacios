@@ -20,6 +20,14 @@ module.exports = function(sequelize, DataTypes) {
     estado: {
       type: DataTypes.CHAR,
       allowNull: true
+    },
+    id_nivel_cargo: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'talen_nivel_cargo',
+        key: 'id_nivel_cargo'
+      }
     }
   }, {
     tableName: 'talen_cargo2'

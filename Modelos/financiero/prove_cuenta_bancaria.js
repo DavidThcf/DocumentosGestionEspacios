@@ -26,11 +26,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_tipo_cuenta_ban: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'tesor_tipo_cuenta_ban',
-        key: 'id_tipo_cuenta_ban'
-      }
+      allowNull: true
     },
     id_banco: {
       type: DataTypes.INTEGER,

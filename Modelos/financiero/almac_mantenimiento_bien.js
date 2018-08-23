@@ -27,6 +27,18 @@ module.exports = function(sequelize, DataTypes) {
     falla_reportada: {
       type: DataTypes.TEXT,
       allowNull: true
+    },
+    id_tipo_mantenimiento: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+      references: {
+        model: 'almac_tipo_mantenimiento',
+        key: 'id_tipo_mantenimiento'
+      }
+    },
+    fecha_entrega: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     tableName: 'almac_mantenimiento_bien'

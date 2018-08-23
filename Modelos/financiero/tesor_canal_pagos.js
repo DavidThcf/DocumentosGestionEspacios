@@ -10,7 +10,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     nombre: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false,
+      unique: true
     }
   }, {
     tableName: 'tesor_canal_pagos'

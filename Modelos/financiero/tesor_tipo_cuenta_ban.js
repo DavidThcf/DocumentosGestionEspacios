@@ -10,11 +10,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     nombre: {
       type: DataTypes.STRING,
-      allowNull: true
-    },
-    descripcion: {
-      type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
+      unique: true
     }
   }, {
     tableName: 'tesor_tipo_cuenta_ban'

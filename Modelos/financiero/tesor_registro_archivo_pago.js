@@ -10,31 +10,31 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_archivo_pagos: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'tesor_archivo_pagos',
         key: 'id_archivo_pagos'
       }
     },
-    num_recibo_c: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
     liquidador: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false,
+      references: {
+        model: 'tesor_liquidador',
+        key: 'id_liquidador'
+      }
     },
     num_recibo: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
     fecha_ing: {
       type: DataTypes.DATEONLY,
-      allowNull: true
+      allowNull: false
     },
     fecha_consignacion: {
       type: DataTypes.DATEONLY,
-      allowNull: true
+      allowNull: false
     },
     fecha_cargado: {
       type: DataTypes.DATE,
@@ -47,7 +47,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     estado: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false,
+      defaultValue: 'N'
     },
     descripcion_estado: {
       type: DataTypes.STRING,
@@ -55,7 +56,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     valor: {
       type: DataTypes.DOUBLE,
-      allowNull: true
+      allowNull: false,
+      defaultValue: '0'
     }
   }, {
     tableName: 'tesor_registro_archivo_pago'

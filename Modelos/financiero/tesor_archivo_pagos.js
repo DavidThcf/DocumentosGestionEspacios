@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_cuenta_ban: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'tesor_cuenta_ban',
         key: 'id_cuenta_ban'
@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     fecha_sube_archivo: {
       type: DataTypes.DATE,
-      allowNull: true,
+      allowNull: false,
       defaultValue: sequelize.fn('now')
     },
     ruta_archivo: {
@@ -31,17 +31,17 @@ module.exports = function(sequelize, DataTypes) {
     },
     estado: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       defaultValue: 'P'
     },
     total_registros: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       defaultValue: '0'
     },
     total_cargados: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       defaultValue: '0'
     },
     id_canal_pagos: {
@@ -55,7 +55,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     cargados_ok: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       defaultValue: '0'
     }
   }, {

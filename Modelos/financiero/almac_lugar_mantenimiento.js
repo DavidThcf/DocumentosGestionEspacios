@@ -8,17 +8,13 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    nombre: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    descripcion: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    estado: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
+    id_unidad: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+      references: {
+        model: 'gener_unidad',
+        key: 'id_unidad'
+      }
     }
   }, {
     tableName: 'almac_lugar_mantenimiento'
